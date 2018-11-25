@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1542839926420.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2964031856",
+    "id" : "AB570AE8",
+    "lastKnownWriteTime" : 1543184373,
+    "last_content_update" : 1543184373405,
+    "path" : "D:/Documentos/LearnAnalytics/WebsiteDataScience/config.toml",
+    "project_path" : "config.toml",
+    "properties" : {
+        "cursorPosition" : "8,6",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "toml"
+}
