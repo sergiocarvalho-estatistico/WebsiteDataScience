@@ -416,7 +416,7 @@ git ls-files --others --ignored --exclude-standard
 ```
 Lista todos os arquivos ignorados neste projeto
 
-# 3° Passo: Comandos mais usados
+# Comandos mais usados
 
 ## Faça mudanças
 
