@@ -268,7 +268,7 @@ enableGitInfo = false
   [[params.social]]
     icon = "github"
     icon_pack = "fab"
-    link = "https://github.com/sgcarvalho"
+    link = "https://github.com/sergiocarvalho-estatistico"
     
   [[params.social]]
     icon = "cv"
