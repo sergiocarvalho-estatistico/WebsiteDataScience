@@ -16,23 +16,23 @@ type = "docs"  # Do not modify.
 
 
 
-## O Git 
+### **O Git** 
 
 * É um sistema de controle de versão distribuído gratuito e de código aberto projetado para lidar com tudo, de projetos pequenos a muito grandes, com velocidade e eficiência, além de ser fácil de aprender Ele usa recursos como ramificação local barata, áreas de preparação convenientes e vários fluxos de trabalho.
 
 > *Curiosidade: A microsoft migrou o seu sistema de controle de versão interna para o Git com o Github, pois somente para o windows há cerca de 4 mil desenvolvedores em todo mundo e o controle de versão da microsoft não estava dando conta.*
 
 
-## O Github
+### **O Github**
 
 
-* É um conjunto de repositórios publicados no Git e na internet, ou seja, além de o usuário poder fazer o controle de versão na máquina com o GitHub ele também pode fazer esse controle de versão online em um único repositório protegido por usuário e senha, isso é o Github, ou seja, é um local na internet onde estão os diversos repositórios do Git em todo mundo. O github é usado por 28 milhões de pessoas, plataforma é o maior repositório de código de programas do mundo.
+* É um conjunto de repositórios publicados no Git e na internet, ou seja, além de o usuário poder fazer o controle de versão na máquina com o GitHub ele também pode fazer esse controle de versão online em um único repositório protegido por usuário e senha, isso é o Github, ou seja, é um local na internet onde estão os diversos repositórios do Git em todo mundo. O github é usado por 28 milhões de pessoas, a plataforma é o maior repositório de código de programas do mundo.
 
 > Em 2018 a Microsoft comprou GitHub por US$ 7,5 bilhões. 
 
 
 
-# Configurando o git 
+# **Configurando o git** 
 
 O git guarda suas informações em três lugares. 
 
@@ -47,136 +47,136 @@ Configure informações de usuário para todos os repositórios locais, como o n
 
 ## Definindo configurações 
 
-### De Usuário
-
+#### de usuário
 
 ```
 git config --global user.name "nome do usuario"
 ```
 
-### De e-mail
+#### de e-mail
 
 
 ```
 git config --global user.email "endereco-de-email"
 ```
 
-### Do editor
+#### do editor
 
 ```
 git config --global core.editor "nome do editor"
 ```
 ## Retornando as configurações
 
-### Do usuário
+
+#### do usuário
 
 ```
 git config user.name
 ```
 
-### Do e-mail
-
+#### do e-mail
 
 ```
 git config user.email
 ```
 
-### De tudo
+#### de tudo
 
 ```
 git config --list
 ```
 
-# Iniciando um repositório
+# **Iniciando uma repo**
 
-Com o git já instalado e configurado, agora nós precisamos criar um repositório 
-aonde colocaremos os arquivos de nosso projeto.
+Agora que já temos o git instalado e configurado iremos criar um repositório (repo, pasta) no qual colocaremos os arquivos de nosso projeto.
 
-### Criando uma pasta para o projeto
-
-```
-mkdir git-course
-```
-
-### Entrar na pasta 
-
+## Criando uma repo.
 
 ```
-cd git-course
+mkdir git-learn
 ```
 
-Agora queremos que o repositório criado seja parte do ecossistema do git, 
-para isso seguiremos com:
+#### entrando na repo git-learn
+
+```
+cd git-learn
+```
+
+#### reconhecendo a repo.  
+
+O comando **git init** faz com que a repo criada seja parte do ecossistema do git, ou seja, ele inicializa a repo e é o responsável por fazer com que o ecossistema do git enxergue todas as mudanças que ocorrerão na repo.
 
 ```
 git init 
 ```
 
-O git init será responsável por inicializar o repositório e ficar enxergando todas as mudanças 
-que ocorrem dentro do repositório.
-
-# O que há dentro do diretório ?
+#### o que há dentro do diretório git-learn ?
 
 ```
 ls -la
 ```
 
-## dentro do diretório .git
+Como abamos de inicializá-lo o diretório possui apenas um subdiretório .git.
+
+
+#### o que há dentro do diretório .git ?
 
 ```
 ls 
 ```
 
-Vemos algumas pastas que são responsáveis por guardar a: 
+Aqui estão algumas pastas responsáveis por: 
 
   * __config__ : Configuração do Repositório.  
   * __HEAD__ :   Branch padrão.     
   * __branches__: Branches existentes do projeto. 
   * __description__:  Descrição das branches.  
-  * __hooks__: Catilhos para fazer certas ações. 
+  * __hooks__: Catilhos para fazer certas ações, 
 
-Então toda vez que inicializamos um repositório o git cria essas pastas para guardar informações.
-
-# Ciclo de vida dos arquivos. 
-
-O git os arquivos passam por quatros estágios bem definidos.
+e toda vez que inicializamos uma repo o git irá criar essas pastas para guardar todas as informações importantes para o bom gerenciamento da repo.
 
 
-  * __Untracked__ :  
-  * __Unmodified__ :        
-  * __Modified__:  
-  * __Staged__:    
+# **Workflow dos arquivos**. 
 
+Depois de algum tempo trabalhando com o git "+" github, você irá perceber que há um fluxo de trabalho no qual o usuário o compreende naturalmente, pois trata-se de estágios bem defindos que estabelecem um tipo de ciclo de vida dos arquivos. 
+
+> **O workflow dos arquivos pode ser entedido como um ciclo de vida dos arquivos em quatros estágios bem definidos.**
+
+  * __Untracked__   
+  * __Unmodified__        
+  * __Modified__  
+  * __Staged__    
 
 
 <img src = "/img/git_ciclovida.png"  style="width: 100%; height: 20%;">
 
 
-## Untracked
+## **Untracked**
 
 É o momento em que o arquivo acabou de ser adicionado no repositório, mas ainda não foi visto pelo git, ou seja, o git não reconhece em seu repositório em nenhuma versão a existência deste arquivo.
 
-## Unmodified
+## **Unmodified**
 
-Depois que um arquivo é adicionado ele passa a ser considerado como não modificado, ou seja, ele já existe no git mas ainda não sofreu modificações
+Depois que um arquivo é adicionado ele passa a ser considerado como não modificado, ou seja, ele já existe no git mas ainda não sofreu modificações.
 
-## Modified
+## **Modified**
 
-Após um arquivo ser reconhecido pelo git podemos então editá-lo e todo arquivo editado passa ao status de modificado
+Após um arquivo ser reconhecido pelo git podemos então editá-lo e todo arquivo editado passa ao status de modificado.
 
-## Staged
+## **Staged**
 
-Depois do arquivo ser modificado podemos colocá-lo em uma área onde será criada uma versão, a qual é chamada de staged
+Depois do arquivo ser modificado podemos colocá-lo em uma área onde será criada uma versão, a qual é chamada de staged.
 
-
-## Commit
+## **Commit**
 
 Os arquivos comitados passam ao status de unmodified, pois uma vez que a versão de um arquivo foi criada e comentada nada foi alterado.  
 
 
-# Primeiro comando
+# **Status do arquivo no workflow**
 
-## git status
+Antes de fazer modificações nos arquivos da repo, é altamente recomendado que você dê o comando **git status** que irá retornar os arquivos de acordo com o estágio no(s) qual(is) se encontra(m) no worflow. Por exemplo, suponha que após digitarmos **git status** observemos que há um arquivo no estágio **untracked** o que implica que ainda não podemos **commitá-lo**, sendo necessário primeiramente subir esse arquivo para o git usando o **git add [nome do arquivo]**.    
+
+## **git status**
 
 Serve pra reportar como está o meu repositório neste momento.
 
