@@ -1,19 +1,9 @@
-+++
-title = "O que é o Git e o Github ?"
-
-date = 2018-11-24
-# lastmod = 2018-09-09T00:00:00
-
-draft = false  # Is this a draft? true/false
-toc = true  # Show table of contents? true/false
-type = "docs"  # Do not modify.
-
-# Add menu entry to sidebar.
-[menu.tutorial]
-  parent = "Learning Github"
-  weight = 1
-+++
-
+---
+title: O que é o git e Github ?
+author: Sérgio Carvalho
+date: '2018-11-28'
+slug: 2018-11-28-github
+---
 
 
 ### **O Git** 
@@ -148,7 +138,11 @@ Depois de algum tempo trabalhando com o git "+" github, você irá perceber que 
   * __Staged__    
 
 
-<img src = "/img/git_ciclovida.png"  style="width: 100%; height: 20%;">
+
+```{r add-fig, fig.width=12, fig.cap='Imagem retirada do site https://git-scm.com',purl=TRUE, echo=FALSE}
+knitr::include_graphics('https://git-scm.com/book/en/v2/images/lifecycle.png')
+```
+
 
 
 ## **Untracked**
@@ -172,7 +166,8 @@ Depois do arquivo ser modificado podemos colocá-lo em uma área onde será cria
 Os arquivos comitados passam ao status de unmodified, pois uma vez que a versão de um arquivo foi criada e comentada nada foi alterado.  
 
 
-# **Status do arquivo no workflow**
+
+# **Status do arquivo**
 
 Antes de fazer modificações nos arquivos da repo, é altamente recomendado que você dê o comando **git status** que irá retornar os arquivos de acordo com o estágio no(s) qual(is) se encontra(m) no worflow. Por exemplo, suponha que após digitarmos **git status** observemos que há um arquivo no estágio **untracked** o que implica que ainda não podemos **commitá-lo**, sendo necessário primeiramente subir esse arquivo para o git usando o **git add [nome do arquivo]**.    
 
