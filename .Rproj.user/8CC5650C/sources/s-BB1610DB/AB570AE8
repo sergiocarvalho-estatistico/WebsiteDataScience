@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "4124669747",
     "id" : "AB570AE8",
-    "lastKnownWriteTime" : 1543537496,
-    "last_content_update" : 1543537496589,
+    "lastKnownWriteTime" : 1543539076,
+    "last_content_update" : 1543539076877,
     "path" : "D:/Documentos/LearnAnalytics/WebsiteDataScience/config.toml",
     "project_path" : "config.toml",
     "properties" : {
-        "cursorPosition" : "14,26",
-        "scrollLine" : "8"
+        "cursorPosition" : "318,15",
+        "scrollLine" : "296"
     },
     "relative_order" : 1,
     "source_on_save" : false,
