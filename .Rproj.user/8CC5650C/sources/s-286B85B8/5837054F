@@ -5,17 +5,17 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1204850625",
+    "hash" : "0",
     "id" : "5837054F",
-    "lastKnownWriteTime" : 1543795983,
-    "last_content_update" : 1543795983663,
+    "lastKnownWriteTime" : 1543796763,
+    "last_content_update" : 1543796763935,
     "path" : "D:/Documentos/LearnAnalytics/WebsiteDataScience/content/tutorial/github.Rmd",
     "project_path" : "content/tutorial/github.Rmd",
     "properties" : {
-        "cursorPosition" : "590,0",
+        "cursorPosition" : "589,42",
         "docOutlineSize" : "304.06998501864615",
-        "docOutlineVisible" : "0",
-        "scrollLine" : "557"
+        "docOutlineVisible" : "1",
+        "scrollLine" : "566"
     },
     "relative_order" : 2,
     "source_on_save" : false,

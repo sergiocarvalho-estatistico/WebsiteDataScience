@@ -320,14 +320,12 @@ Figure 12: Visualizando os logs com git log –graph
 </div>
 </div>
 <div id="revise-o-historico" class="section level1">
-<h1>Revise o histórico</h1>
-<div id="navegue-e-inspecione-a-evolucao-dos-arquivos-do-projeto" class="section level2">
-<h2>Navegue e inspecione a evolução dos arquivos do projeto</h2>
+<h1><strong>Revise o histórico</strong></h1>
+<p>Verifique a evolução dos arquivos do projeto.</p>
 <pre><code>git log --follow [arquivo]</code></pre>
-<p>Lista o histórico de versões para o branch atual</p>
+<p>Liste o histórico de versões para o branch atual.</p>
 <pre><code>git log --follow [arquivo]</code></pre>
 <p>Lista o histórico de versões para um arquivo, incluindo mudanças de nome</p>
-</div>
 <div id="usando-a-hash-para-ver-o-commits" class="section level2">
 <h2><strong>Usando a hash para ver o commits</strong></h2>
 <p>O comando <strong>git show</strong> seguido pela <strong>hash</strong> de determinado <strong>commit</strong> nos mostra qual a alteração que houve ao commitar o arquivo.</p>
@@ -449,33 +447,29 @@ Figure 14: Verificações de commit
 <li>build/</li>
 <li>temp-*</li>
 </ul>
-<p>Um arquivo de texto chamado .gitignore suprime o versionamento acidental de arquivos e diretórios correspondentes aos padrões especificados</p>
+<p>Um arquivo de texto chamado .gitignore suprime o versionamento acidental de arquivos e diretórios correspondentes aos padrões especificados.</p>
 <pre><code>git ls-files --others --ignored --exclude-standard</code></pre>
-<p>Lista todos os arquivos ignorados neste projeto</p>
+<p>Lista todos os arquivos ignorados neste projeto.</p>
 </div>
 <div id="sincronize-mudancas" class="section level1">
 <h1><strong>Sincronize mudanças</strong></h1>
-<div id="registre-um-repositorio-remoto-e-troque-o-historico-de-versao" class="section level2">
-<h2>Registre um repositório remoto e troque o histórico de versão</h2>
+<p>Registre um repositório remoto e troque o histórico de versão.</p>
 <pre><code>git fetch [nome-remoto]</code></pre>
-<p>Baixe todo o histórico de um repositório remoto</p>
+<p>Baixe todo o histórico de um repositório remoto.</p>
 <pre><code>git merge [nome-remoto]/[branch]</code></pre>
-<p>Combina o branch remoto ao branch local atual</p>
+<p>Combina o branch remoto ao branch local atual.</p>
 <pre><code>git push [alias] [branch]</code></pre>
-<p>Envia todos os commits do branch local para o GitHub</p>
+<p>Envia todos os commits do branch local para o GitHub.</p>
 <pre><code>git pull</code></pre>
-<p>Baixa o histórico e incorpora as mudanças</p>
-</div>
+<p>Baixa o histórico e incorpora as mudanças.</p>
 </div>
 <div id="referencias" class="section level1">
 <h1>Referências</h1>
 <ul>
 <li><a href="https://pt.wikipedia.org/wiki/Git">wiki-Git</a></li>
-<li><a href="http://try.github.io">Git-Try-Io</a></li>
 <li><a href="https://learngitbranching.js.org">Learngitbranching”</a></li>
 <li><a href="https://git-scm.com/book/en/v2">Git-SCM</a></li>
 <li><a href="https://lab.github.com/courses">GitLab</a></li>
-<li><a href="https://www.udemy.com/git-e-github-para-iniciantes">Gitfordummys</a></li>
 <li><a href="https://www.atlassian.com/git">Getting Git Right</a></li>
 <li>[<a href="https://medium.com/@daniel820710" class="uri">https://medium.com/@daniel820710</a>]</li>
 </ul>

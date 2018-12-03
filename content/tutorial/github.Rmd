@@ -367,15 +367,15 @@ knitr::include_graphics('/img/loggraph.png')
 Nesta forma são retornados todos os logs e as hash's do usuário o que irá facilitar na busca de verificações de *commits* usando a hash, como será mostrado na figura (\@ref(fig:gitshow)). 
 
 
-# Revise o histórico
+# **Revise o histórico**
 
-## Navegue e inspecione a evolução dos arquivos do projeto
+Verifique a evolução dos arquivos do projeto.
 
 ```
 git log --follow [arquivo]
 ```
 
-Lista o histórico de versões para o branch atual
+Liste o histórico de versões para o branch atual.
 
  
 ```
@@ -553,51 +553,49 @@ Ignore arquivos e diretórios temporários
 * build/
 * temp-\*
 
-Um arquivo de texto chamado .gitignore suprime o versionamento acidental de arquivos e diretórios correspondentes aos padrões especificados
+Um arquivo de texto chamado .gitignore suprime o versionamento acidental de arquivos e diretórios correspondentes aos padrões especificados.
 
 ```
 git ls-files --others --ignored --exclude-standard
 ```
-Lista todos os arquivos ignorados neste projeto
+Lista todos os arquivos ignorados neste projeto.
 
 
 # **Sincronize mudanças**
 
-## Registre um repositório remoto e troque o histórico de versão
+Registre um repositório remoto e troque o histórico de versão.
  
 ```
 git fetch [nome-remoto]
 ```
 
-Baixe todo o histórico de um repositório remoto
+Baixe todo o histórico de um repositório remoto.
  
 ```
 git merge [nome-remoto]/[branch]
 ```
 
-Combina o branch remoto ao branch local atual
+Combina o branch remoto ao branch local atual.
 
 ```
 git push [alias] [branch]
 ```
 
-Envia todos os commits do branch local para o GitHub
+Envia todos os commits do branch local para o GitHub.
 
 ```
 git pull
 ```
 
-Baixa o histórico e incorpora as mudanças
+Baixa o histórico e incorpora as mudanças.
 
 
 # Referências
 
 * [wiki-Git](https://pt.wikipedia.org/wiki/Git)
-* [Git-Try-Io](http://try.github.io)
 * [Learngitbranching”](https://learngitbranching.js.org)
 * [Git-SCM](https://git-scm.com/book/en/v2)
 * [GitLab](https://lab.github.com/courses)
-* [Gitfordummys](https://www.udemy.com/git-e-github-para-iniciantes)
 * [Getting Git Right](https://www.atlassian.com/git)
 * [https://medium.com/@daniel820710]
 
