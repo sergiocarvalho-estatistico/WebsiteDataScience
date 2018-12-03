@@ -3,6 +3,9 @@ title: O que é o git e Github ?
 author: Sérgio Carvalho
 date: '2018-11-28'
 slug: 2018-11-28-github
+header:
+  image: "https://cdn-images-1.medium.com/max/1200/1*qwFrTMnFkcd3U9rFKwwacw.png"
+  caption: "Fonte: https://medium.com/cs-note/git-and-github-for-beginners-i-tutorial-263caa01f9c3/"
 ---
 
 
@@ -117,10 +120,10 @@ slug: 2018-11-28-github
 </li>
 <li><strong>Staged</strong></li>
 </ul>
-<div class="figure"><span id="fig:add-fig"></span>
-<img src="https://git-scm.com/book/en/v2/images/lifecycle.png" alt="Imagem retirada do site https://git-scm.com"  />
+<div class="figure" style="text-align: center"><span id="fig:add-fig"></span>
+<img src="https://git-scm.com/book/en/v2/images/lifecycle.png" alt="Fonte: https://git-scm.com"  />
 <p class="caption">
-Figure 1: Imagem retirada do site <a href="https://git-scm.com" class="uri">https://git-scm.com</a>
+Figure 1: Fonte: <a href="https://git-scm.com" class="uri">https://git-scm.com</a>
 </p>
 </div>
 <div id="untracked" class="section level2">
@@ -143,6 +146,17 @@ Figure 1: Imagem retirada do site <a href="https://git-scm.com" class="uri">http
 <h2><strong>Commit</strong></h2>
 <p>Os arquivos comitados passam ao status de unmodified, pois uma vez que a versão de um arquivo foi criada e comentada nada foi alterado.</p>
 </div>
+<div id="workflow-comandos" class="section level2">
+<h2><strong>Workflow + comandos</strong></h2>
+<p>Na Figura (<a href="#fig:resumo">2</a>) <a href="https://medium.com/@daniel820710?source=post_header_lockup">PJ Wang</a> mostra como os comandos básicos do git, <strong>git add, commit, push, fetch, merge, pull e rebase</strong>, fazem os arquivos transitarem dentro do workflow.</p>
+<div class="figure" style="text-align: center"><span id="fig:resumo"></span>
+<img src="https://cdn-images-1.medium.com/max/800/1*5KXszV8UWQDXWf9XwKEaSQ.png" alt="Imagem retirada do site https://medium.com/cs-note"  />
+<p class="caption">
+Figure 2: Imagem retirada do site <a href="https://medium.com/cs-note" class="uri">https://medium.com/cs-note</a>
+</p>
+</div>
+<p>Além disso, da Figura (<a href="#fig:resumo">2</a>) entendemos qual comando utilizar para levar um arquivo de um determinado estágio a outro até o momento em que é utilizado o comando <strong>git push</strong> para transição do repositório local (git) para o repositório que está remoto na web (github).</p>
+</div>
 </div>
 <div id="status-do-arquivo" class="section level1">
 <h1><strong>Status do arquivo</strong></h1>
@@ -153,7 +167,12 @@ Figure 1: Imagem retirada do site <a href="https://git-scm.com" class="uri">http
 <pre><code>git status</code></pre>
 <p>Se não existir nada ainda em seu repositório irá aparecer a seguinte mensagem:</p>
 <center>
-<img src="/img/git_status1.jpg" alt="git status" />
+<div class="figure" style="text-align: center"><span id="fig:git-status"></span>
+<img src="/img/git_status1.jpg" alt="git stauts"  />
+<p class="caption">
+Figure 3: git stauts
+</p>
+</div>
 </center>
 <ul>
 <li><p><strong>On branch master</strong>: significar que você está na branch master</p></li>
@@ -163,7 +182,12 @@ Figure 1: Imagem retirada do site <a href="https://git-scm.com" class="uri">http
 <p>Como ainda não há arquivos em nosso repositório, iremos criá-lo usando um editor de texto vim.</p>
 <pre><code>vim Readme.md</code></pre>
 <center>
-<img src="/img/create_arq.jpg" alt="create-arquivo" />
+<div class="figure" style="text-align: center"><span id="fig:create-file"></span>
+<img src="/img/create_arq.jpg" alt="Criando um arquivo"  />
+<p class="caption">
+Figure 4: Criando um arquivo
+</p>
+</div>
 </center>
 <ul>
 <li>Criado o arquivo Readme.md criado vamos agora inserir um texto nele.</li>
@@ -176,67 +200,107 @@ Figure 1: Imagem retirada do site <a href="https://git-scm.com" class="uri">http
 <p>Obs: O comando (:wq) é utilizado para salvar (salve) o arquivo e sair (quit) do Vim. </br></p>
 <p>Agora podemos verificar novamente o status</p>
 <pre><code>git status</code></pre>
-<center>
-<img src="/img/untracked.png" alt="untracked" />
-</center>
-<p><em>Observe que o arquivo Readme.md está com seu status em untracked, ou seja, ele acabou de ser criado porém o git ainda não o reconhece, iremos adicioná-lo usando o comando git add [nome do arquivo] e em seguida digitaremos novamente o git status.</em></p>
+<div class="figure" style="text-align: center"><span id="fig:untracked"></span>
+<img src="/img/untracked.png" alt="status untracked cycle life"  />
+<p class="caption">
+Figure 5: status untracked cycle life
+</p>
+</div>
+<p>Observe que o arquivo Readme.md está com seu status em untracked, ou seja, ele acabou de ser criado porém o git ainda não o reconhece, iremos adicioná-lo usando o comando <strong>git add [nome do arquivo]</strong> e em seguida digitaremos novamente o <strong>git status</strong>.</p>
 </div>
 <div id="git-add" class="section level2">
-<h2>git add</h2>
+<h2><strong>git add</strong></h2>
+<p>Faz o snapshot de um arquivo na preparação para versionamento.</p>
 <pre><code>git add Readme.md</code></pre>
-<center>
-<img src="/img/newfile.png" alt="newfile" />
-</center>
-<p>Veja, temos um novo arquivo reconhecido pelo git! O output indica que este é o momento do staged, agora o arquivo já pode ser commitado e preparado para criarmos uma versão dele.</p>
+<div class="figure" style="text-align: center"><span id="fig:new-file"></span>
+<img src="/img/newfile.png" alt="git add new file"  />
+<p class="caption">
+Figure 6: git add new file
+</p>
+</div>
+<p>A figura mostra que Temos um novo arquivo reconhecido pelo git e que ele está no estágio <em>unstage</em>, isto significa que agora o arquivo já pode ser commitado e preparado para criarmos uma versão dele, a snapshot.</p>
 </div>
 </div>
-<div id="commit-nos-arquivos" class="section level1">
-<h1>Commit nos arquivos</h1>
-<center>
-<img src="/img/very_status.png" alt="status" />
-</center>
-<p>Observe que o git nos mostra os arquivos de acordo com o estágio dentro do ciclo de vida do arquivo, e por isso temos os arquivos</p>
+<div id="commitando-arquivos" class="section level1">
+<h1><strong>Commitando arquivos</strong></h1>
+<blockquote>
+<p><em>O comando commit é usado no momento em que você quer avisar ao git que ele já pode criar uma image (snapshot,versão) do(s) arquivo(s) que está(ão) no repositório.</em></p>
+</blockquote>
+<p>Na Figura (<a href="#fig:very-status">7</a>) observe que o git nos mostra os arquivos de acordo com o estágio dentro do ciclo de vida do arquivo, os arquivos</p>
 <ul>
 <li>commit_ars.png</li>
 <li>very_status.png</li>
 </ul>
-<p>no primeiro estágio que é untracked, ou seja, ainda não foram reconhecidos pelo git, precisam ser adicionos e comitados. Já os arquivos</p>
+<div class="figure" style="text-align: center"><span id="fig:very-status"></span>
+<img src="/img/very_status.png" alt="status and cycle file"  />
+<p class="caption">
+Figure 7: status and cycle file
+</p>
+</div>
+<p>estão no estágio <strong>untracked</strong>, ou seja, ainda não foram reconhecidos pelo ecossistema do git e, para isto, precisamos adicioná-los através do comando <strong>git add [nome do arquivo]</strong>. Já os arquivos,</p>
 <ul>
 <li>Readme.md</li>
 <li>github.Rmd</li>
 </ul>
-<p>são reconhecidos pelo git, porém como foram modificados precisam ser adicionados e commitados.</p>
-<center>
-<img src="/img/commit_arqs.png" alt="commits" />
-</center>
-<blockquote>
-<p><em>O comando commit é usado no momento em que você quer avisar o git que ele já pode criar uma image (snapshop,versão) do(s) arquivo(s) que está(ão) no repositório.</em></p>
-</blockquote>
-<div id="primeiro-commit" class="section level2">
-<h2>Primeiro commit</h2>
-<p>Commitando o arquivo <strong>Readme.md</strong>.</p>
-<pre><code>git commit -m &quot;Add Readme&quot; Readme.md  </code></pre>
-<p>Obs: No texto do commit é importante escrever o que realmente ocorreu com o arquivo, para que caso tenha que retornar a uma determinada versão você se lembre facilmente da alteração que foi feita, isso contribui em muito para o desenvolvimento de código em equipe.</p>
-<div class="figure">
-<img src="/img/first_commit.png" alt="firstcommit" />
-<p class="caption">firstcommit</p>
+<p>são reconhecidos pelo git, porém como foram modificados precisam ser adicionados <strong>git add</strong> e commitados <strong>git commit -m [nome do arquivo]</strong> .</p>
+<div class="figure" style="text-align: center"><span id="fig:commit-arqs"></span>
+<img src="/img/commit_arqs.png" alt="Arquivos a serem commitados"  />
+<p class="caption">
+Figure 8: Arquivos a serem commitados
+</p>
 </div>
-<p>Note que o commit foi criado na [branch master] com a hash 11ed80d e com o seguinte comentário “primeiro comit”. Após o commit de todos os arquivos, sobrou apenas o arquivo <strong>github.Rmd</strong></p>
-<center>
-<img src="/img/after_commit.png" alt="aftercommit" />
-</center>
+<div id="primeiro-commit" class="section level2">
+<h2><strong>Primeiro commit</strong></h2>
+<blockquote>
+<p><strong>No texto do commit é importante escrever o que realmente ocorreu com o arquivo, para que caso tenha que retornar a uma determinada versão você se lembre facilmente da alteração que foi feita, isso contribui em muito para o desenvolvimento de código em equipe.</strong></p>
+</blockquote>
+<div id="commitando-o-arquivo-readme.md." class="section level3">
+<h3>Commitando o arquivo <strong>Readme.md</strong>.</h3>
+<pre><code>git commit -m &quot;Add Readme&quot; Readme.md  </code></pre>
+<p>Na Figura (<a href="#fig:first-commit">9</a>) Observe que o <em>commit</em> foi criado na <strong>[branch master]</strong> com a hash <strong>11ed80d</strong> e com o seguinte comentário <strong>“primeiro commit”</strong>.</p>
+<div class="figure" style="text-align: center"><span id="fig:first-commit"></span>
+<img src="/img/first_commit.png" alt="primeiro commit"  />
+<p class="caption">
+Figure 9: primeiro commit
+</p>
+</div>
+<p>Após o commit de todos os arquivos, sobrou apenas o arquivo <strong>github.Rmd</strong>, como é mostrado na Figura (<a href="#fig:after-commit">10</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:after-commit"></span>
+<img src="/img/after_commit.png" alt="status depois do primeiro commit"  />
+<p class="caption">
+Figure 10: status depois do primeiro commit
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="visualizando-os-logs" class="section level1">
-<h1>Visualizando os logs</h1>
-<p>Através do comando git log podemos verificar os arquivos que foram versionados.</p>
+<h1><strong>Visualizando os logs</strong></h1>
+<p>A visualização dos <em>logs</em> nos permite ter acesso ao histórico das modificações realizadas em todos os arquivos da(s) repo(s).</p>
+<div id="git-log" class="section level2">
+<h2><strong>Git log</strong></h2>
+<p>O comando <strong>git log</strong> lista os arquivos que foram versionados.</p>
 <pre><code>git logs</code></pre>
-<div class="figure">
-<img src="/img/views_logs.png" alt="logs" />
-<p class="caption">logs</p>
+<p>A Figura (<a href="#fig:views-logs">11</a>) mostra o output após o comando <strong>git log</strong> e com isso podemos ver quais os arquivos sofreram modificações, neste caso são:</p>
+<ul>
+<li>swp</li>
+<li>github latex-referencias</li>
+<li>imagens</li>
+<li>projeto</li>
+<li>gitignore</li>
+<li>primeiro commit</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:views-logs"></span>
+<img src="/img/views_logs.png" alt="visualizando os logs"  />
+<p class="caption">
+Figure 11: visualizando os logs
+</p>
+</div>
+<p>Perceba que após o termo <strong>commit</strong> há um código alpha numérico denominado por <strong>hash</strong>, ele será útil quando desejamos verificar a(s) modificação(ões) ocorrida(s) em um determinado arquivo. Além disso, também é retornado o usuário que realizou a(s) modificação(ões) e em qual(ais) data(s) ela(s) ocorreu(am).</p>
 </div>
 <div id="filtrando-os-logs" class="section level2">
-<h2>Filtrando os logs</h2>
+<h2><strong>Filtrando os logs</strong></h2>
+<p>Uma das formas de filtrar os logs é selecionando o author através do comando <strong>git shortlog</strong>. No exemplo abaixo observa-se que ao setar author = “sergio” há seis itens.</p>
 <pre><code>$ git shortlog --author=&quot;sergio&quot;
 Sergio (6):
       primeiro commit
@@ -245,143 +309,14 @@ Sergio (6):
       imagens
       github latex-referencias
       swp</code></pre>
-<p>Uma forma bastante interessante de visualizar os logs é utilizndo o comando git log –graph, observe.</p>
-<div class="figure">
-<img src="/img/loggraph.png" alt="git_log" />
-<p class="caption">git_log</p>
+<p>Na figura (<a href="#fig:loggraph">12</a>) Outra forma interessante de visualizar os logs é utilizar o comando <strong>git log –graph</strong>, observe.</p>
+<div class="figure" style="text-align: center"><span id="fig:loggraph"></span>
+<img src="/img/loggraph.png" alt="Visualizando os logs com git log --graph"  />
+<p class="caption">
+Figure 12: Visualizando os logs com git log –graph
+</p>
 </div>
-</div>
-<div id="usando-a-hash-para-ver-o-commits" class="section level2">
-<h2>Usando a hash para ver o commits</h2>
-<pre><code>git show [hash]</code></pre>
-<p>O comando <em>git show</em> seguido pela <em>hash</em> de determinado commit nos mostra qual a alteração que houve ao commitar o arquivo.</p>
-<div class="figure">
-<img src="/img/gitshow.png" alt="gitshow" />
-<p class="caption">gitshow</p>
-</div>
-</div>
-</div>
-<div id="visualizando-o-diff" class="section level1">
-<h1>Visualizando o diff</h1>
-<div id="o-comando-diff" class="section level2">
-<h2>O Comando diff</h2>
-<p>O comando diff permite a nós visualizarmos as mudanças feitas nos arquivos antes de salvar a versão e fazer o commit.</p>
-</div>
-<div id="exemplo" class="section level2">
-<h2>Exemplo:</h2>
-<p>Pelo git bash iremos criar o arquivo <strong>Comando_diff.md</strong> e trabalhar nele.</p>
-<pre><code>git subl Comando_diff.md </code></pre>
-<p>Digite: entendendo o comando diff.</p>
-</div>
-<div id="o-que-foi-mudou" class="section level2">
-<h2>O que foi mudou ?</h2>
-<pre><code>git diff</code></pre>
-<div class="figure">
-<img src="/img/r_diff.png" alt="resultado" />
-<p class="caption">resultado</p>
-</div>
-<p>Observe que git coloca um sinal de ‘+’ indicando que houve alguma modificação isso nos ajuda no sentido de que podemos visualizar e revisar as mudanças antes de enivar para que o git salve uma versão, por isso é sempre interesse utilizar o git diff antes de realizar o commit.</p>
-</div>
-<div id="opcoes-do-git-diff" class="section level2">
-<h2>Opções do git diff</h2>
-<pre><code>git diff --name-only</code></pre>
-<p>Nesta opção o git retorna somente o nome do arquivo modificado.</p>
-</div>
-<div id="git-checkout" class="section level2">
-<h2>Git checkout</h2>
-<p>O git checkout é utilizado para nos ajudar a desfazer coisas, por exemplo, suponha que acabamos de realizar alguma modificação em um arquivo e ai, antes de commitar digitamos o comando git diff, na hipótese de termos feito algo errado ou que apenas não gostamos da modificação realizada podemos resetar o arquivo com o comando <strong>git checkout</strong> que o arquivo voltará ao seu status de conteúdo antes da modificação.</p>
-<pre><code>git diff checkout [nome do arquivo]</code></pre>
-</div>
-<div id="git-reset" class="section level2">
-<h2>Git reset</h2>
-<p>O comando git reset tem três variações:</p>
-<ul>
-<li><strong>git reset –soft</strong>: reset o commit mas deixar o arquivo no staged para ser commitado novamente.</li>
-<li><strong>git reset –mixed</strong>: reset o commit mas volta o arquivo para antes do unstaged, modified.</li>
-<li><strong>git reset –hard</strong>: reset todo o arquivo como se o commit sido feito.</li>
-</ul>
-<p>As três formas de uso do git reset, soft, mixed e hard, são acompanhadas da hash que indica que o reset será dado nas modificações posteriores a ela.</p>
-</div>
-</div>
-<div id="repositorio-remoto-o-github" class="section level1">
-<h1>Repositório Remoto (O github)</h1>
-<p>No github,</p>
-<ul>
-<li>Crie um repositório com o mesmo nome do nosso repositório local ()</li>
-<li>Em seguida, gere uma chave SSH em nosso computador de trabalho e adicioná-la ao github.</li>
-</ul>
-<div id="obtenha-uma-url-existente" class="section level2">
-<h2>Obtenha uma URL existente</h2>
-<p>Com o Git Bash criamos o repositório <em>learning_git</em> em <em>~/documents/estudos de analytics</em>.</p>
-<div id="o-git-clone" class="section level3">
-<h3>O git clone</h3>
-<p><em>Se um projeto já foi configurado em um repositório central, o comando git clone é a maneira mais comum para os usuários obterem um clone de desenvolvimento local. Como git init, a clonagem é geralmente uma operação única. Depois que um desenvolvedor obtiver uma cópia de trabalho, todas as operações de controle de versão serão gerenciadas por meio de seu repositório local.</em></p>
-<pre><code>git clone [repo url]</code></pre>
-</div>
-</div>
-</div>
-<div id="suprima-o-monitoramento" class="section level1">
-<h1>Suprima o monitoramento</h1>
-<p>Ignore arquivos e diretórios temporários</p>
-<ul>
-<li>*.log</li>
-<li>build/</li>
-<li>temp-*</li>
-</ul>
-<p>Um arquivo de texto chamado .gitignore suprime o versionamento acidental de arquivos e diretórios correspondentes aos padrões especificados</p>
-<pre><code>git ls-files --others --ignored --exclude-standard</code></pre>
-<p>Lista todos os arquivos ignorados neste projeto</p>
-</div>
-<div id="comandos-mais-usados" class="section level1">
-<h1>Comandos mais usados</h1>
-<div id="faca-mudancas" class="section level2">
-<h2>Faça mudanças</h2>
-<p>Revise edições e crie uma transação de commit</p>
-<pre><code>git add [arquivo]</code></pre>
-<p>Faz o snapshot de um arquivo na preparação para versionamento</p>
-<pre><code>git diff --staged</code></pre>
-<p>Mostra a diferença entre arquivos preparados e suas últimas versões</p>
-<pre><code>git reset [arquivo]</code></pre>
-<p>Retira o arquivo da área de preparação, mas preserva seu conteúdo</p>
-<pre><code>git commit -m &quot;[mensagem descritiva]&quot;</code></pre>
-<p>Grava o snapshot permanentemente do arquivo no histórico de versão</p>
-</div>
-</div>
-<div id="mude-e-remova-os-arquivos-versionados" class="section level1">
-<h1>Mude e remova os arquivos versionados</h1>
-<p>Remove o arquivo do diretório de trabalho e o prepara a remoção</p>
-<pre><code>git rm [arquivo]</code></pre>
-<p>Remove o arquivo do controle de versão mas preserva o arquivo localmente</p>
-<pre><code>git rm --cached [arquivo]</code></pre>
-<p>Muda o nome do arquivo e o prepara para o commit</p>
-<pre><code>git mv [arquivo-original] [arquivo-renomeado]</code></pre>
-</div>
-<div id="salve-fragmentos" class="section level1">
-<h1>Salve fragmentos</h1>
-<p>Arquive e restaure mudanças incompletas.</p>
-<p>Armazena temporariamente todos os arquivos monitorados modificados</p>
-<pre><code>git stash</code></pre>
-<p>Restaura os arquivos recentes em stash</p>
-<pre><code>git stash pop</code></pre>
-<p>Lista todos os conjuntos de alterações em stash</p>
-<pre><code>git stash list</code></pre>
-<p>Descarta os conjuntos de alterações mais recentes em stash</p>
-<pre><code>git stash drop</code></pre>
-</div>
-<div id="mudancas-em-grupo" class="section level1">
-<h1>Mudanças em grupo</h1>
-<div id="nomeie-uma-serie-de-commits-e-combine-os-esforcos-completos" class="section level2">
-<h2>Nomeie uma série de commits e combine os esforços completos</h2>
-<pre><code>git branch</code></pre>
-<p>Lista todos os branches locais no repositório atual</p>
-<pre><code>git branch [nome-do-branch]</code></pre>
-<p>Cria um novo branch</p>
-<pre><code>git checkout [nome-do-branch]</code></pre>
-<p>Muda para o branch especificado e atualiza o diretório de trabalho</p>
-<pre><code>git merge [nome-do-branch]</code></pre>
-<p>Combina o histórico do branch especificado ao branch atual</p>
-<pre><code>git branch -d [nome-do-branch]</code></pre>
-<p>Exclui o branch especificado</p>
+<p>Nesta forma são retornados todos os logs e as hash’s do usuário o que irá facilitar na busca de verificações de <em>commits</em> usando a hash, como será mostrado na figura (<a href="#fig:gitshow">13</a>).</p>
 </div>
 </div>
 <div id="revise-o-historico" class="section level1">
@@ -392,24 +327,134 @@ Sergio (6):
 <p>Lista o histórico de versões para o branch atual</p>
 <pre><code>git log --follow [arquivo]</code></pre>
 <p>Lista o histórico de versões para um arquivo, incluindo mudanças de nome</p>
+</div>
+<div id="usando-a-hash-para-ver-o-commits" class="section level2">
+<h2><strong>Usando a hash para ver o commits</strong></h2>
+<p>O comando <strong>git show</strong> seguido pela <strong>hash</strong> de determinado <strong>commit</strong> nos mostra qual a alteração que houve ao commitar o arquivo.</p>
+<pre><code>git show [hash]</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gitshow"></span>
+<img src="/img/gitshow.png" alt="Verificações de commit"  />
+<p class="caption">
+Figure 13: Verificações de commit
+</p>
+</div>
+</div>
+</div>
+<div id="usando-o-git-diff" class="section level1">
+<h1><strong>Usando o git diff</strong></h1>
+<p>O comando <strong>git diff</strong> permite a nós visualizarmos as mudanças feitas nos arquivos antes de fazer o commit e salvar a versão, ou seja, quando o arquivo encontrar-se no estágio <em>staged</em>.<br />
+## <strong>Exemplo:</strong></p>
+<p>Pelo <em>git bash</em> iremos criar o arquivo <em>Comando_diff.md</em> e vamos trabalhar nele.</p>
+<pre><code>git subl Comando_diff.md </code></pre>
+<p>Agora digite: ‘entendendo o comando diff.’</p>
+<div id="o-que-foi-mudou" class="section level3">
+<h3>O que foi mudou ?</h3>
+<pre><code>git diff</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:r-diff"></span>
+<img src="/img/r_diff.png" alt="Verificações de commit"  />
+<p class="caption">
+Figure 14: Verificações de commit
+</p>
+</div>
+<p>Observe que git coloca um sinal de ‘+’ indicando que houve alguma modificação isso nos ajuda no sentido de que podemos visualizar e revisar as mudanças antes de enivar para que o git salve uma versão, por isso é sempre interesse utilizar o git diff antes de realizar o commit.</p>
+</div>
+<div id="opcoes-do-git-diff" class="section level3">
+<h3><strong>Opções do git diff</strong></h3>
+<pre><code>git diff --name-only</code></pre>
+<p>Nesta opção o git retorna somente o nome do arquivo modificado.</p>
+<pre><code>git diff --staged</code></pre>
+<p>Mostra a diferença entre arquivos preparados e suas últimas versões.</p>
 <pre><code>git diff [primerio-branch]...[segundo-branch]</code></pre>
 <p>Mostra a diferença de conteúdo entre dois branches</p>
-<pre><code>git show [commit]</code></pre>
-<p>Retorna mudanças de metadata e conteúdo para o commit especificado</p>
 </div>
 </div>
-<div id="desfaca-commits" class="section level1">
-<h1>Desfaça commits</h1>
-<div id="apague-enganos-e-crie-um-historico-substituto" class="section level2">
-<h2>Apague enganos e crie um histórico substituto</h2>
-<pre><code>git reset [commit]</code></pre>
-<p>Desfaz todos os commits depois de [commit], preservando mudanças locais</p>
-<pre><code>git reset --hard [commit]</code></pre>
-<p>Descarta todo histórico e mudanças para o commit especificado</p>
+<div id="faca-mudancas" class="section level1">
+<h1><strong>Faça mudanças</strong></h1>
+<p>No git há uma série de comando que permite ao usuários realizar mudanças quando for necessário, tais mudanças vão desde um <em>commit</em> até a remoção completa do arquivo independente de qual estágio esteja dentro do workflow.</p>
+<div id="git-checkout" class="section level2">
+<h2><strong>Git checkout</strong></h2>
+<p>O git checkout é utilizado para nos ajudar a desfazer coisas, por exemplo, suponha que acabamos de realizar alguma modificação em um arquivo e ai, antes de commitar digitamos o comando git diff, na hipótese de termos feito algo errado ou que apenas não gostamos da modificação realizada podemos resetar o arquivo com o comando <strong>git checkout</strong> que o arquivo voltará ao seu status de conteúdo antes da modificação.</p>
+<pre><code>git diff checkout [nome do arquivo]</code></pre>
 </div>
+<div id="git-reset" class="section level2">
+<h2><strong>Git reset</strong></h2>
+<p>O comando git reset tem três variações:</p>
+<ul>
+<li><strong>git reset –soft</strong>: reset o commit mas deixar o arquivo no staged para ser commitado novamente.</li>
+<li><strong>git reset –mixed</strong>: reset o commit mas volta o arquivo para antes do unstaged, modified.</li>
+<li><strong>git reset –hard</strong>: reset todo o arquivo como se o commit sido feito.</li>
+</ul>
+<p>As três formas de uso do git reset, soft, mixed e hard, são acompanhadas da hash que indica que o reset será dado nas modificações posteriores a ela.</p>
+</div>
+<div id="altere-arquivos-versionados" class="section level2">
+<h2><strong>Altere arquivos versionados</strong></h2>
+<p>Remove o arquivo do diretório de trabalho e o prepara a remoção.</p>
+<pre><code>git rm [arquivo]</code></pre>
+<p>Remove o arquivo do controle de versão mas preserva o arquivo localmente.</p>
+<pre><code>git rm --cached [arquivo]</code></pre>
+<p>Muda o nome do arquivo e o prepara para o commit</p>
+<pre><code>git mv [arquivo-original] [arquivo-renomeado]</code></pre>
+</div>
+</div>
+<div id="mudancas-em-grupo" class="section level1">
+<h1><strong>Mudanças em grupo</strong></h1>
+<p>No git é possível utilizar as branches para nomeaar uma série de commits e combinar os esforços completos.</p>
+<div id="liste-as-branch." class="section level2">
+<h2><strong>Liste as Branch</strong>.</h2>
+<pre><code>git branch</code></pre>
+<p>Lista todos os branches locais no repositório atual.</p>
+</div>
+<div id="cria-uma-nova-branch" class="section level2">
+<h2><strong>Cria uma nova branch</strong></h2>
+<pre><code>git branch [nome-do-branch]</code></pre>
+</div>
+<div id="muda-de-branch" class="section level2">
+<h2><strong>Muda de branch</strong></h2>
+<pre><code>git checkout [nome-do-branch]</code></pre>
+<p>Muda para o branch especificado e atualiza o diretório de trabalho.</p>
+</div>
+<div id="junta-as-branches" class="section level2">
+<h2><strong>Junta as branches</strong></h2>
+<pre><code>git merge [nome-do-branch]</code></pre>
+<p>Combina o histórico do branch especificado ao branch atual.</p>
+</div>
+<div id="exclua-a-branch" class="section level2">
+<h2><strong>Exclua a Branch</strong></h2>
+<pre><code>git branch -d [nome-do-branch]</code></pre>
+<p>Exclui o branch especificado</p>
+</div>
+</div>
+<div id="repositorio-remoto-o-github" class="section level1">
+<h1><strong>Repositório Remoto (O github)</strong></h1>
+<p>No github,</p>
+<ul>
+<li>Crie um repositório com o mesmo nome do nosso repositório local()</li>
+<li>Em seguida, gere uma chave SSH em nosso computador de trabalho e adicioná-la ao github.</li>
+</ul>
+<div id="obtenha-uma-url-existente" class="section level2">
+<h2><strong>Obtenha uma URL existente</strong></h2>
+<p>Com o Git Bash criamos o repositório <em>learning_git</em> em <em>~/documents/estudos de analytics</em>.</p>
+<div id="o-git-clone" class="section level3">
+<h3><strong>O git clone</strong></h3>
+<p><em>Se um projeto já foi configurado em um repositório central, o comando git clone é a maneira mais comum para os usuários obterem um clone de desenvolvimento local. Como git init, a clonagem é geralmente uma operação única. Depois que um desenvolvedor obtiver uma cópia de trabalho, todas as operações de controle de versão serão gerenciadas por meio de seu repositório local.</em></p>
+<pre><code>git clone [repo url]</code></pre>
+</div>
+</div>
+</div>
+<div id="suprima-o-monitoramento" class="section level1">
+<h1><strong>Suprima o monitoramento</strong></h1>
+<p>Ignore arquivos e diretórios temporários</p>
+<ul>
+<li>*.log</li>
+<li>build/</li>
+<li>temp-*</li>
+</ul>
+<p>Um arquivo de texto chamado .gitignore suprime o versionamento acidental de arquivos e diretórios correspondentes aos padrões especificados</p>
+<pre><code>git ls-files --others --ignored --exclude-standard</code></pre>
+<p>Lista todos os arquivos ignorados neste projeto</p>
 </div>
 <div id="sincronize-mudancas" class="section level1">
-<h1>Sincronize mudanças</h1>
+<h1><strong>Sincronize mudanças</strong></h1>
 <div id="registre-um-repositorio-remoto-e-troque-o-historico-de-versao" class="section level2">
 <h2>Registre um repositório remoto e troque o histórico de versão</h2>
 <pre><code>git fetch [nome-remoto]</code></pre>
@@ -425,11 +470,13 @@ Sergio (6):
 <div id="referencias" class="section level1">
 <h1>Referências</h1>
 <ul>
+<li><a href="https://pt.wikipedia.org/wiki/Git">wiki-Git</a></li>
 <li><a href="http://try.github.io">Git-Try-Io</a></li>
 <li><a href="https://learngitbranching.js.org">Learngitbranching”</a></li>
 <li><a href="https://git-scm.com/book/en/v2">Git-SCM</a></li>
 <li><a href="https://lab.github.com/courses">GitLab</a></li>
 <li><a href="https://www.udemy.com/git-e-github-para-iniciantes">Gitfordummys</a></li>
 <li><a href="https://www.atlassian.com/git">Getting Git Right</a></li>
+<li>[<a href="https://medium.com/@daniel820710" class="uri">https://medium.com/@daniel820710</a>]</li>
 </ul>
 </div>
