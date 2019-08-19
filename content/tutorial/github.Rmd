@@ -1,5 +1,5 @@
 ---
-title: O que é o git e GGGithub ?
+title: O que é o git e Github ?
 author: Sérgio Carvalho
 date: '2018-11-28'
 slug: 2018-11-28-github
@@ -9,11 +9,12 @@ header:
 ---
 
 ```{r setup, echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE,fig.align="center")
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.align="center")
 ```
 
 
-### **O Git** 
+### **O Gittt** 
 
 
 * É um sistema de controle de versão distribuído gratuito e de código aberto projetado para lidar com tudo, de projetos pequenos a muito grandes, com velocidade e eficiência, além de ser fácil de aprender Ele usa recursos como ramificação local barata, áreas de preparação convenientes e vários fluxos de trabalho.
@@ -27,8 +28,6 @@ knitr::opts_chunk$set(echo = TRUE,fig.align="center")
 * É um conjunto de repositórios publicados no Git e na internet, ou seja, além de o usuário poder fazer o controle de versão na máquina com o GitHub ele também pode fazer esse controle de versão online em um único repositório protegido por usuário e senha, isso é o Github, ou seja, é um local na internet onde estão os diversos repositórios do Git em todo mundo. O github é usado por 28 milhões de pessoas, a plataforma é o maior repositório de código de programas do mundo.
 
 > Em 2018 a Microsoft comprou GitHub por US$ 7,5 bilhões. 
-
-
 
 # **Configurando o git** 
 
@@ -199,7 +198,7 @@ Se não existir nada ainda em seu repositório irá aparecer a seguinte mensagem
 <center>
 
 ```{r git-status, echo=FALSE, fig.align='center', fig.cap='git stauts'}
-knitr::include_graphics('/img/git_status1.jpg')
+knitr::include_graphics('../../public/img/git_status1.jpg')
 ```
 
 </center>
@@ -222,7 +221,7 @@ vim Readme.md
 <center>
 
 ```{r create-file, echo=FALSE, fig.align='center', fig.cap='Criando um arquivo'}
-knitr::include_graphics('/img/create_arq.jpg')
+knitr::include_graphics('../../public/img/create_arq.jpg')
 ```
 
 </center>
@@ -244,7 +243,7 @@ git status
 ```
 
 ```{r untracked, echo=FALSE, fig.align='center', fig.cap='status untracked cycle life'}
-knitr::include_graphics('/img/untracked.png')
+knitr::include_graphics('../../public/img/untracked.png')
 ```
 
 Observe que o arquivo Readme.md está com seu status em untracked, ou seja, ele acabou de ser criado porém o git ainda não o reconhece, iremos adicioná-lo usando o comando **git add [nome do arquivo]** e em seguida digitaremos novamente o **git status**.
@@ -259,7 +258,7 @@ git add Readme.md
 ```
 
 ```{r new-file, echo=FALSE, fig.align='center', fig.cap='git add new file'}
-knitr::include_graphics('/img/newfile.png')
+knitr::include_graphics('../../public/img/newfile.png')
 ```
 
 A figura mostra que Temos um novo arquivo reconhecido pelo git e que ele está no estágio *unstage*, isto significa que agora o arquivo já pode ser commitado e preparado para criarmos uma versão dele, a snapshot.
@@ -276,7 +275,7 @@ Na Figura (\@ref(fig:very-status)) observe que o git nos mostra os arquivos de a
 * very_status.png
 
 ```{r very-status, echo=FALSE, fig.align='center', fig.cap='status and cycle file'}
-knitr::include_graphics('/img/very_status.png')
+knitr::include_graphics('../../public/img/very_status.png')
 ```
 
 estão no estágio **untracked**, ou seja, ainda não foram reconhecidos pelo ecossistema do git e, para isto, precisamos adicioná-los através do comando **git add [nome do arquivo]**. Já os arquivos, 
@@ -287,7 +286,7 @@ estão no estágio **untracked**, ou seja, ainda não foram reconhecidos pelo ec
 são reconhecidos pelo git, porém como foram modificados precisam ser adicionados **git add** e commitados **git commit -m [nome do arquivo]** .
 
 ```{r commit-arqs, echo=FALSE, fig.align='center', fig.cap='Arquivos a serem commitados'}
-knitr::include_graphics('/img/commit_arqs.png')
+knitr::include_graphics('../../public/img/commit_arqs.png')
 ```
 
 ## **Primeiro commit**
@@ -303,14 +302,14 @@ git commit -m "Add Readme" Readme.md
 Na Figura (\@ref(fig:first-commit)) Observe que o *commit* foi criado na **[branch master]** com a hash **11ed80d** e com o seguinte comentário **"primeiro commit"**. 
 
 ```{r first-commit, echo=FALSE, fig.align='center', fig.cap='primeiro commit'}
-knitr::include_graphics('/img/first_commit.png')
+knitr::include_graphics('../../public/img/first_commit.png')
 ```
 
 Após o commit de todos os arquivos, sobrou apenas o arquivo **github.Rmd**, como é mostrado na Figura (\@ref(fig:after-commit)).
 
 
 ```{r after-commit, echo=FALSE, fig.align='center', fig.cap='status depois do primeiro commit'}
-knitr::include_graphics('/img/after_commit.png')
+knitr::include_graphics('../../public/img/after_commit.png')
 ```
 
 
@@ -337,7 +336,7 @@ A Figura (\@ref(fig:views-logs)) mostra o output após o comando **git log** e c
 
 
 ```{r views-logs, echo=FALSE, fig.align='center', fig.cap='visualizando os logs'}
-knitr::include_graphics('/img/views_logs.png')
+knitr::include_graphics('../../public/img/views_logs.png')
 ```
 
 Perceba que após o termo **commit** há um código alpha numérico denominado por **hash**, ele será útil quando desejamos verificar a(s) modificação(ões) ocorrida(s) em um determinado arquivo. Além disso, também é retornado o usuário que realizou a(s) modificação(ões) e em qual(ais) data(s) ela(s) ocorreu(am).          
@@ -361,7 +360,7 @@ Sergio (6):
 Na figura (\@ref(fig:loggraph))  Outra forma interessante de visualizar os logs é utilizar o comando **git log --graph**, observe.
 
 ```{r loggraph, echo=FALSE, fig.align='center', fig.cap='Visualizando os logs com git log --graph'}
-knitr::include_graphics('/img/loggraph.png')
+knitr::include_graphics('../../public/img/loggraph.png')
 ```
 
 Nesta forma são retornados todos os logs e as hash's do usuário o que irá facilitar na busca de verificações de *commits* usando a hash, como será mostrado na figura (\@ref(fig:gitshow)). 
@@ -395,7 +394,7 @@ git show [hash]
 ```
 
 ```{r gitshow, echo=FALSE, fig.align='center', fig.cap='Verificações de commit'}
-knitr::include_graphics('/img/gitshow.png')
+knitr::include_graphics('../../public/img/gitshow.png')
 ```
 
 
@@ -419,7 +418,7 @@ git diff
 ``` 
 
 ```{r r-diff, echo=FALSE, fig.align='center', fig.cap='Verificações de commit'}
-knitr::include_graphics('/img/r_diff.png')
+knitr::include_graphics('../../public/img/r_diff.png')
 ```
 
 Observe que git coloca um sinal de '+' indicando que houve alguma modificação isso nos ajuda no sentido de que podemos visualizar e revisar as mudanças antes de enivar para que o git salve uma versão, por isso é sempre interesse utilizar o git diff antes de realizar o commit.

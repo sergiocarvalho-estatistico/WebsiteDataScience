@@ -2,18 +2,18 @@
     "collab_server" : "",
     "contents" : "",
     "created" : 1547313070835.000,
-    "dirty" : true,
+    "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2518898621",
     "id" : "E0968998",
     "lastKnownWriteTime" : 1543176847,
-    "last_content_update" : 1566234461567,
+    "last_content_update" : 1566237568229,
     "path" : "D:/Documentos/LearnDataScience/WebsiteDataScience/content/post/2018-11-25-redesbayesianas.Rmd",
     "project_path" : "content/post/2018-11-25-redesbayesianas.Rmd",
     "properties" : {
-        "cursorPosition" : "635,0",
-        "scrollLine" : "0"
+        "cursorPosition" : "40,2",
+        "scrollLine" : "34"
     },
     "relative_order" : 1,
     "source_on_save" : false,

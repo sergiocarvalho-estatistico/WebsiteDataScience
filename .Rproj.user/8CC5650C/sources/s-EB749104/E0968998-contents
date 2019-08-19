@@ -37,6 +37,8 @@ knitr::opts_chunk$set(echo = TRUE,
   suppressMessages(library(sna))
   suppressMessages(library(bnlearn))
   suppressMessages(library(infotheo))
+  
+  getwd()
 ````
 
 
