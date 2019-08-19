@@ -10,7 +10,9 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
+    "Data visualization",
     "Statistical Modeling",
+    "Probability and statistics",
     "Machine Learning",
     "Artificial Intelligence",
     "Big Data",
@@ -34,8 +36,8 @@ weight = 5
   year = 2018  
 +++
 
-# Sobre 
+# Bio 
 
-Atualmente trabalho como cientista de dados na empresa Raízen https://www.raizen.com.br/, localizada na cidade de Piracicaba - SP. Tenho interesse por ciência, política, música, filmes, livros, viagens e  especialmente por conceitos e aplicações matemáticas que suportam a tomada de decisão sob a incerteza. 
+Eu sou cientista de dados com habilidade em desenvolver soluções matemáticas e computacionais que agregam valor a tomada de decições sob a incerteza. Desenvolvo aplicações web, visualização de dados e relatórios dinâmicos. Atualmente trabalho na empresa Raízen https://www.raizen.com.br/. 
 
-Minha paixão pela ciência surgiu através da leitura de livros de ciência e ficção científica de autores como Isaac Asimov, Arhur C. Clarke e Carl Sagan entre outros. 
+Também tenho interesse por ciência e ficção científica, política, música, filmes, livros e viagens. Minha paixão pela ciência surgiu através da leitura de livros de ciência e ficção científica de autores como Isaac Asimov, Arhur C. Clarke e Carl Sagan entre outros. 
