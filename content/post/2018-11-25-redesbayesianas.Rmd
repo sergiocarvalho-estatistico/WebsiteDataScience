@@ -37,6 +37,8 @@ knitr::opts_chunk$set(echo = TRUE,
   suppressMessages(library(sna))
   suppressMessages(library(bnlearn))
   suppressMessages(library(infotheo))
+  
+
 ````
 
 
@@ -200,7 +202,7 @@ A teoria de Redes Bayesianas é construída considerando grafos direcionados, co
 
 
 ```{r fig-no-arco, echo=FALSE,fig.show='hold',fig.cap='Exemplo de Nó e Arco', fig.align="center"}
-knitr::include_graphics('/img/No_arco.jpg')
+knitr::include_graphics('../../public/img/No_arco.jpg')
 ```
 
 ##  Estruturas básicas existentes dentro da Teoria de grafos
@@ -209,7 +211,7 @@ O termo “direcionado” faz referência à presença de direção dos arcos, o
 
 
 ```{r fig-estrutura-basica, echo=FALSE,fig.show='hold',out.height='30%' ,out.width='100%',fig.cap='Estrutura básica'}
-knitr::include_graphics('/img/Estrutura_Basica.png')
+knitr::include_graphics('../../public/img/Estrutura_Basica.png')
 ```
 
 
@@ -273,7 +275,7 @@ Assim, a rede é representada pela Figura abaixo:
 
 
 ```{r fig-estrutura-modelagem, echo=FALSE,fig.show='hold', out.height='30%',out.width='100%', fig.cap='Exemplo da Estrutura de Modelagem das Redes Bayesianas'}
-knitr::include_graphics('/img/exemplo1.png')
+knitr::include_graphics('../../public/img/exemplo1.png')
 ```
 
 
@@ -293,7 +295,7 @@ probabilidade condicional (CPT) explicando numericamente a chance da cada catego
 
 
 ```{r fig-evidencia, echo=FALSE,fig.show='hold', out.height='50%', fig.cap='Rede Bayesiana tendo como evidencia a variável Idade (Idade <20)'}
-knitr::include_graphics('/img/exemplo2.png')
+knitr::include_graphics('../../public/img/exemplo2.png')
 ```
 
 
@@ -338,7 +340,7 @@ Outro conceito muito utilizado na teoria de Redes Bayesianas é a cobertura de M
 
 
 ```{r fig-cobertura-de-markov, echo=FALSE,fig.show='hold', out.height='50%', fig.cap='Cobertura de Markov de A representada pelas variáveis-nó cinza'}
-knitr::include_graphics('/img/exemplo3.png')
+knitr::include_graphics('../../public/img/exemplo3.png')
 ```
 
 ## A propriedade de d-separação.
@@ -355,7 +357,7 @@ Além disso, podemos definir $A \subset \vee$, sendo $X e Y \in \vee  - A$
 
 
 ```{r fig-tipos-d-separação, echo=FALSE,fig.show='hold', out.height='50%', fig.cap=' Tipos de d-separação, U e W d-separados'}
-knitr::include_graphics('/img/exemplo4.png')
+knitr::include_graphics('../../public/img/exemplo4.png')
 ```
 
 
@@ -369,7 +371,7 @@ independências condicionais. Ou seja, dois grafos são considerados equivalente
 
 
 ```{r fig-redes-equivalentes, echo=FALSE,fig.show='hold', out.height='50%', fig.cap='Exemplo de identificação de redes Bayesianas Markov equivalentes'}
-knitr::include_graphics('/img/exemplo5.png')
+knitr::include_graphics('../../public/img/exemplo5.png')
 ```
 
 Analisando a Figura 2.7, notamos que a estrutura (a) não é equivalente a (b), pois além de não preservar a conexão head-to-head $C ~ \rightarrow ~ E ~ \leftarrow ~ D$ , a estrutura (b) não mantém a conexão entre as variáveis A e B. Esses mesmos motivos fazem (b) não equivalente à estrutura (c). Comparando a estrutura (a) com (c), notamos que existe apenas diferença entre a direção de ligação entre as variáveis A e B, ou seja, (a) e (c) são equivalentes. Dizemos que (a) e (c) pertencem à mesma classe de equivalência markoviana.

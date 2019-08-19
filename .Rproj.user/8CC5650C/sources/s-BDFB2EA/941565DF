@@ -1,19 +1,21 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1566234088335.000,
+    "created" : 1566242471905.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1542943790",
-    "id" : "FEB8D48F",
-    "lastKnownWriteTime" : 1542839922,
-    "last_content_update" : 1542839922,
+    "hash" : "0",
+    "id" : "941565DF",
+    "lastKnownWriteTime" : 1566242841,
+    "last_content_update" : 1566242841317,
     "path" : "D:/Documentos/LearnDataScience/WebsiteDataScience/index.Rmd",
     "project_path" : "index.Rmd",
     "properties" : {
+        "cursorPosition" : "2,3",
+        "scrollLine" : "0"
     },
-    "relative_order" : 2,
+    "relative_order" : 1,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"
