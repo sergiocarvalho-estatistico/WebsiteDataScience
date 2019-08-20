@@ -1,10 +1,10 @@
 ---
-date: 2018-11-29T20:20-05:00
 title: "Learning Python"
-type: "tutorial"
 author: "Sérgio Carvalho"
-draft: false
+date: '2019-08-19'
+slug: 2019-08-19-learningpython
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

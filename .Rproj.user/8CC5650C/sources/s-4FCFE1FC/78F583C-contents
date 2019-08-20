@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 
-### **O Gittt** 
+### **O Git** 
 
 
 * É um sistema de controle de versão distribuído gratuito e de código aberto projetado para lidar com tudo, de projetos pequenos a muito grandes, com velocidade e eficiência, além de ser fácil de aprender Ele usa recursos como ramificação local barata, áreas de preparação convenientes e vários fluxos de trabalho.
