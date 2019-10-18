@@ -1,0 +1,16 @@
+---
+title: "Learning Python"
+author: "Sérgio Carvalho"
+date: '2019-08-19'
+slug: 2019-08-19-learningpython
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Conteúdo
+ 
+ * [Curso de Python](https://pyscarvalho.readthedocs.io/index.html)
+

@@ -430,11 +430,11 @@ bnfit$Pressure</code></pre>
 100 *  cpquery(bnfit, 
                      event = (Pressure==&quot;&gt;140&quot;), 
                      evidence = (Smoking==&quot;yes&quot; &amp; Proteins==&#39;&gt;3&#39;)) %&gt;% round(2)</code></pre>
-<pre><code>## [1] 41</code></pre>
+<pre><code>## [1] 40</code></pre>
 <pre class="r"><code>100 *  cpquery(bnfit, 
                      event = (Pressure==&quot;&gt;140&quot;), 
                      evidence = (Smoking==&quot;no&quot; &amp; Proteins==&#39;&lt;3&#39;)) %&gt;% round(2)</code></pre>
-<pre><code>## [1] 46</code></pre>
+<pre><code>## [1] 48</code></pre>
 <center>
 <p>$ P(Pressure &gt; 140 ~ | ~ Smoking = yes, ~ Proteins &gt; 3) = 41 % $
 $ P(Pressure &gt; 140 ~ | ~ Smoking = no , ~ Proteins &gt; 3) = 47 % $</p>
