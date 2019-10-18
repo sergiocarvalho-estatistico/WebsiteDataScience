@@ -82,7 +82,8 @@ image:
 <center>
 <p><span class="math inline">\(P(E_j ~|~ F) ~ ~ \propto ~ ~ P (E_j) ~ P(F ~|~ E_j)\)</span></p>
 </center>
-<p>sendo <span class="math inline">\(~ \propto ~\)</span> indicador de proporcionalidade. Em outros termos, podemos dizer que a probabilidade a posteriori é proporcional à probabilidade a priori multiplicada pela verossimilhança.</p>
+<p>sendo <span class="math inline">\(~ \propto ~\)</span> indicador de proporcionalidade. Em outros termos, podemos dizer que a probabilidade a posteriori é proporcional à probabilidade a priori multiplicada pela
+verossimilhança.</p>
 </div>
 <div id="as-distribuicoes-multinomial-e-dirichlet" class="section level2">
 <h2>As distribuições Multinomial e Dirichlet</h2>
@@ -94,7 +95,8 @@ image:
 <center>
 <p><span class="math inline">\(P(X ~|~ N,~ p) ~ \propto ~ \displaystyle \prod_{i=1}^{r} p_i^{xi}\)</span></p>
 </center>
-<p>Além disso, temos que para um vetor <span class="math inline">\(p=(p_1, p_2, ~\cdots ~,p_r)\)</span> de valores desconhecidos com<span class="math inline">\(\displaystyle \sum_{i=1}^{r} p_i = 1\)</span>, podemos assumir que <span class="math inline">\(p\)</span> segue distribuição Dirichlet com parâmetros <span class="math inline">\(\alpha = (\alpha_1, ~\cdots ~, \alpha_r)\)</span> com <span class="math inline">\(\alpha_i &gt; 1\)</span>, <span class="math inline">\(E(p_i) = \dfrac{\alpha_i}{\alpha_0}\)</span> e função densidade de probabilidade expressa pela fórmula.</p>
+<p>Além disso, temos que para um vetor <span class="math inline">\(p=(p_1, p_2, ~\cdots ~,p_r)\)</span> de valores desconhecidos
+com<span class="math inline">\(\displaystyle \sum_{i=1}^{r} p_i = 1\)</span>, podemos assumir que <span class="math inline">\(p\)</span> segue distribuição Dirichlet com parâmetros <span class="math inline">\(\alpha = (\alpha_1, ~\cdots ~, \alpha_r)\)</span> com <span class="math inline">\(\alpha_i &gt; 1\)</span>, <span class="math inline">\(E(p_i) = \dfrac{\alpha_i}{\alpha_0}\)</span> e função densidade de probabilidade expressa pela fórmula.</p>
 <center>
 <p><span class="math inline">\(P(~ p ~|~ \alpha) = \dfrac{\Gamma(\alpha_0) }{\displaystyle \prod_{i=1}^{r} \Gamma(\alpha_i) } \displaystyle \prod_{i=1}^{r} p_i^{\alpha_i - 1}\)</span></p>
 </center>
@@ -102,7 +104,8 @@ image:
 <center>
 <p><span class="math inline">\(P(~ p ~|~ \alpha) = \displaystyle \prod_{i=1}^{r} p_i^{\alpha_i - 1}\)</span></p>
 </center>
-assumindo como priori <span class="math inline">\(P( p ~|~ \alpha)\)</span> e como verossimilhança <span class="math inline">\(P(X ~|~ N,~ p)\)</span>, temos que a posteriori <span class="math inline">\(P( p ~|~ X )\)</span> é dada pela expressão abixo a qual tem distribuição Dirichlet com parâmetros <span class="math inline">\(α = (α_1+x_1, . . . , α_r+x_r)\)</span>, ou seja <span class="math inline">\(E(p_i) = \dfrac{\alpha_i+x_i}{\alpha_0 + N}\)</span> , sendo <span class="math inline">\(\displaystyle \alpha = \sum_{i = 1}^{r} \alpha_i.\)</span> 
+assumindo como priori <span class="math inline">\(P( p ~|~ \alpha)\)</span> e como verossimilhança <span class="math inline">\(P(X ~|~ N,~ p)\)</span>, temos que a posteriori <span class="math inline">\(P( p ~|~ X )\)</span> é dada pela expressão abixo a qual tem distribuição Dirichlet com parâmetros <span class="math inline">\(α = (α_1+x_1, . . . , α_r+x_r)\)</span>, ou seja <span class="math inline">\(E(p_i) = \dfrac{\alpha_i+x_i}{\alpha_0 + N}\)</span> , sendo <span class="math inline">\(\displaystyle \alpha = \sum_{i = 1}^{r} \alpha_i.\)</span>
+
 <center>
 <p><span class="math inline">\(P(p ~|~ X) \propto \displaystyle \prod_{i}^{r} p_{i}^{\alpha_i + x_i - 1}\)</span></p>
 </center>
@@ -136,7 +139,8 @@ Figure 2: Estrutura básica
 <li>Estrutura de conexões simples: Existe apenas um caminho que liga uma variável a outra independente da direção dos arcos</li>
 <li>Estrutura de múltiplas conexões: Há mais de um possível caminho que liga uma variável a outra, independente da direção dos arcos.</li>
 </ul>
-<p>A subdivisão das estruturas de conexão simples se dá pelo número de nós que originam a rede, ou seja, nós que não possuem nenhum arco chegando, apenas arcos partindo.</p>
+<p>A subdivisão das estruturas de conexão simples se dá pelo número de nós que
+originam a rede, ou seja, nós que não possuem nenhum arco chegando, apenas arcos partindo.</p>
 </div>
 <div id="hierarquia-entre-nos" class="section level2">
 <h2>Hierarquia Entre Nós</h2>
@@ -214,7 +218,8 @@ Figure 2: Estrutura básica
 </div>
 <div id="exemplo-basico-de-uma-rede-bayesiana" class="section level2">
 <h2>Exemplo Básico de uma Rede Bayesiana</h2>
-<p>Considere uma Rede Bayesiana dada sua estrutura já conhecida e relacionando seguintes variáveis binárias:</p>
+<p>Considere uma Rede Bayesiana dada sua estrutura já conhecida e relacionando
+seguintes variáveis binárias:</p>
 <ul>
 <li>Sexo { M, F };</li>
 <li>Idade { &lt;20 anos, &gt;= 20 anos };</li>
@@ -236,7 +241,9 @@ Figure 3: Exemplo da Estrutura de Modelagem das Redes Bayesianas
 <li>Credit Rating,</li>
 </ul>
 <p>são representadas por seu respectivo nó na rede, sendo Sexo e Idade variáveis-pai da variável Crédtios Anteriores e Créditos Anteriores pai da variável Credit Rating. Ainda realizando uma análise hierárquica, as variáveis Sexo e Idade são classificadas na rede como variáveis-raiz e Credit Rating como folha.</p>
-<p>Além disso, notamos que Sexo e Idade influenciam diretamente a variável Créditos Anteriores, que por sua vez influencia probabilisticamente de uma forma direta a variável Credit Rating. Interpretando os relacionamentos, se o cliente é do sexo masculino, ou não, isso influencia na probabilidade do cliente ter um, ou mais, créditos anteriores realizados na instituição. Se o cliente é menor de 20 anos, ou não, também influencia a probabilidade do cliente ter um ou mais créditos anteriores realizados na instituição. Assim, a probabilidade do cliente ter, ou não, realizado requisição de créditos anteriormente na instituição financeira influencia a probabilidade dele ser classificado como um bom pagador ou mau pagador. Para cada uma das variáveis e seus cruzamentos condicionais, temos uma tabela de probabilidade condicional (CPT) explicando numericamente a chance da cada categoria – evento – ocorrer dado premissas anteriores.</p>
+<p>Além disso, notamos que Sexo e Idade influenciam diretamente a variável Créditos Anteriores, que por sua vez influencia probabilisticamente de uma forma direta a variável Credit Rating. Interpretando os relacionamentos, se o cliente é do sexo masculino, ou não, isso influencia na probabilidade do cliente ter um, ou mais, créditos anteriores realizados na instituição. Se o cliente é menor de 20 anos, ou não, também influencia a probabilidade do cliente ter um ou mais créditos anteriores realizados na instituição. Assim, a probabilidade do cliente ter, ou não, realizado requisição de créditos anteriormente na instituição financeira influencia a probabilidade dele ser classificado como um bom pagador ou mau pagador.
+Para cada uma das variáveis e seus cruzamentos condicionais, temos uma tabela de
+probabilidade condicional (CPT) explicando numericamente a chance da cada categoria – evento – ocorrer dado premissas anteriores.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig-evidencia"></span>
 <img src="../../public/img/exemplo2.png" alt="Rede Bayesiana tendo como evidencia a variável Idade (Idade &lt;20)" width="218" height="50%" />
 <p class="caption">
@@ -259,7 +266,8 @@ Figure 4: Rede Bayesiana tendo como evidencia a variável Idade (Idade &lt;20)
 <center>
 <p><span class="math inline">\(P[X_i ~|~ X_j,~ pais(X_i)] = P[X_i ~|~ pais(X_i)]\)</span></p>
 </center>
-<p>Além disso, consideremos a distribuição de probabilidade conjunta de uma Rede Bayesiana com k variáveis e a propriedade (2.1), temos que em uma Rede Bayesiana <span class="math inline">\((\varepsilon,\theta )\)</span> , definida sobre um conjunto de variáveis aleatórias <span class="math inline">\(X = \{ X_1, X_2, \cdots , X_k \}\)</span>, a probabilidade conjunta de toda a rede é dada através da expressão.</p>
+<p>Além disso, consideremos a distribuição de probabilidade conjunta de uma Rede Bayesiana com k variáveis e a propriedade (2.1), temos que em uma Rede Bayesiana <span class="math inline">\((\varepsilon,\theta )\)</span> ,
+definida sobre um conjunto de variáveis aleatórias <span class="math inline">\(X = \{ X_1, X_2, \cdots , X_k \}\)</span>, a probabilidade conjunta de toda a rede é dada através da expressão.</p>
 <center>
 <p><span class="math inline">\(P(X_i = x_i, \cdots , X_k = x_k ) = \prod_{i = 1}^{k} P[X_i ~ | ~ pais(X_i) ]\)</span></p>
 </center>
@@ -294,7 +302,9 @@ Figure 6:  Tipos de d-separação, U e W d-separados
 </div>
 <div id="equivalencia-de-markov" class="section level2">
 <h2>Equivalência de Markov</h2>
-<p>Existem inúmeras estruturas possíveis no enredo de Redes Bayesianas. Porém, podemos construir para cada conjunto de variáveis um grupo de estruturas extremamente semelhantes, chamadas de equivalentes de Markov. Segundo Neapolitan (2004), dois grafos são equivalentes quando mantêm as mesmas independências condicionais. Ou seja, dois grafos são considerados equivalentes quando conservam as mesmas ligações de arcos entre as variáveis independente da direção, com exceção às ligações head-to-head, ou seja, quando uma variável-filho possui mais que uma variável-pai. Assim, considere o exemplo da Figura 2.7.</p>
+<p>Existem inúmeras estruturas possíveis no enredo de Redes Bayesianas. Porém, podemos construir para cada conjunto de variáveis um grupo de estruturas extremamente semelhantes, chamadas de equivalentes de Markov.
+Segundo Neapolitan (2004), dois grafos são equivalentes quando mantêm as mesmas
+independências condicionais. Ou seja, dois grafos são considerados equivalentes quando conservam as mesmas ligações de arcos entre as variáveis independente da direção, com exceção às ligações head-to-head, ou seja, quando uma variável-filho possui mais que uma variável-pai. Assim, considere o exemplo da Figura 2.7.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig-redes-equivalentes"></span>
 <img src="../../public/img/exemplo5.png" alt="Exemplo de identificação de redes Bayesianas Markov equivalentes" width="382" height="50%" />
 <p class="caption">
@@ -306,7 +316,9 @@ Figure 7: Exemplo de identificação de redes Bayesianas Markov equivalentes
 </div>
 <div id="metodo-geral-para-a-construcao-de-uma-rede-bayesiana." class="section level1">
 <h1>Método Geral para a Construção de uma Rede Bayesiana.</h1>
-<p>A construção de uma Rede Bayesiana não é trivial, além de existir vários métodos para a estimação de estruturas de rede através do conjunto de dados, os métodos podem ser influenciados por fatores como a ordem e escolha das variáveis que compõem o problema. Esse problema proporciona atualmente intensas pesquisas buscando um método ótimo para estimação de estruturas DAG para domínios de problemas práticos. Porém, de uma forma geral, Pearl (1988) criou um algoritmo baseando-se nas propriedades 2.1 e 2.2, no qual, dado um conjunto de variáveis discretas ordenadas, constrói uma Rede Bayesiana única, adicionando às variáveis a rede em sua ordem e acrescentando arcos para a formação da estrutura. Assim, cada variável é conectada às variáveis antigas da rede, o que garante que a estrutura seja sempre acíclica.</p>
+<p>A construção de uma Rede Bayesiana não é trivial, além de existir vários métodos para a estimação de estruturas de rede através do conjunto de dados, os métodos podem ser influenciados por fatores como a ordem e escolha das variáveis que compõem o problema. Esse problema proporciona atualmente intensas pesquisas buscando um método ótimo para estimação de estruturas DAG para domínios de problemas práticos.
+Porém, de uma forma geral, Pearl (1988) criou um algoritmo baseando-se nas
+propriedades 2.1 e 2.2, no qual, dado um conjunto de variáveis discretas ordenadas, constrói uma Rede Bayesiana única, adicionando às variáveis a rede em sua ordem e acrescentando arcos para a formação da estrutura. Assim, cada variável é conectada às variáveis antigas da rede, o que garante que a estrutura seja sempre acíclica.</p>
 <p>O algoritmo de Pearl é dado abaixo.</p>
 <ol style="list-style-type: decimal">
 <li>Escolha um conjunto de variáveis <span class="math inline">\(X_i\)</span> que em suposição descreva o problema;</li>
@@ -325,7 +337,8 @@ Figure 7: Exemplo de identificação de redes Bayesianas Markov equivalentes
 <div id="inferencia-em-redes-bayesinas" class="section level2">
 <h2>Inferência em Redes Bayesinas</h2>
 <p>No contexto de Redes Bayesianas, o termo “inferência”, também conhecido como atualização de crença (belief updating), é comumente utilizado para referenciar a atualização de probabilidades por toda a estrutura da rede dada um conjunto de evidências. Ou seja, segundo Korb e Nicholson (2004), trata-se de um mecanismo para cálculo da distribuição posteriori de probabilidade para um conjunto de variáveis, dado um conjunto de evidências, ou seja, variáveis aleatórias com valores instanciados.</p>
-<p>Porém, como visto anteriormente, existem diversos tipos de estruturas de Redes Bayesianas, assim as inferências probabilistas podem ser realizadas de diferentes formas assumindo tipos de estruturas específicas e com diferentes quantidades de variáveis.</p>
+<p>Porém, como visto anteriormente, existem diversos tipos de estruturas de Redes
+Bayesianas, assim as inferências probabilistas podem ser realizadas de diferentes formas assumindo tipos de estruturas específicas e com diferentes quantidades de variáveis.</p>
 <p>Entretanto, existem fatores que dificultam o processo de inferência, como a complexidade da estrutura em análise e o número de variáveis. Ou seja, para poucas variáveis e uma estrutura gráfica dirigida acíclica (DAG) não complexa, a propagação das probabilidades pode ser facilmente calculada. À medida que existe um grande número de variáveis e estruturas mais complexas, existe grande dificuldade no cálculo das probabilidades da rede.</p>
 <p>Marques e Dutra (1999) consideram que existe maior dificuldade quando o problema é modelado de uma forma complexa, ou seja, quando a estrutura considerada para a inferência possui relações complexas entre as variáveis. Assim, em algumas situações, uma rede com apenas uma dezena de variáveis pode necessitar de um tempo computacional muito grande para término da inferência (às vezes inviável), enquanto uma rede contendo milhares de variáveis e uma estrutura simplista pode levar apenas alguns instantes de processamento.</p>
 <p>Buscando contornar tal problema, utilizamos algoritmos de inferência probabilística que facilitem os cálculos, sendo essa uma área de pesquisa em Redes Bayesianas.</p>
@@ -423,20 +436,9 @@ bnfit$Pressure</code></pre>
                      evidence = (Smoking==&quot;no&quot; &amp; Proteins==&#39;&lt;3&#39;)) %&gt;% round(2)</code></pre>
 <pre><code>## [1] 46</code></pre>
 <center>
-<p>$ P(Pressure &gt; 140 ~ | ~ Smoking = yes, ~ Proteins &gt; 3) = 41 % $ $ P(Pressure &gt; 140 ~ | ~ Smoking = no , ~ Proteins &gt; 3) = 47 % $</p>
+<p>$ P(Pressure &gt; 140 ~ | ~ Smoking = yes, ~ Proteins &gt; 3) = 41 % $
+$ P(Pressure &gt; 140 ~ | ~ Smoking = no , ~ Proteins &gt; 3) = 47 % $</p>
 </center>
-</div>
-</div>
-<div id="referencias" class="section level1">
-<h1>Referências</h1>
-<ul>
-<li><a href="http://try.github.io">Git-Try-Io</a></li>
-<li><a href="https://learngitbranching.js.org">Learngitbranching”</a></li>
-<li><a href="https://git-scm.com/book/en/v2">Git-SCM</a></li>
-<li><a href="https://lab.github.com/courses">GitLab</a></li>
-<li><a href="https://www.udemy.com/git-e-github-para-iniciantes">Gitfordummys</a></li>
-<li><a href="https://www.atlassian.com/git">Getting Git Right</a></li>
-</ul>
 <!-- Retras griegas y acentos matemáticos -->
 <!-- Código: $\mu, \beta, \lambda, \sigma, \Sigma$ -->
 <!-- Código: $\tilde{S}, \overline{x}, \overline{X}, \hat{p}$ -->
@@ -499,4 +501,5 @@ bnfit$Pressure</code></pre>
 <!-- \end{array} -->
 <!-- \right. -->
 <!-- $$ -->
+</div>
 </div>

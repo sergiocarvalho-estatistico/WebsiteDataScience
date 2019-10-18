@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "74435493",
+    "hash" : "0",
     "id" : "E3AD0250",
-    "lastKnownWriteTime" : 1543772215,
-    "last_content_update" : 1543772215,
+    "lastKnownWriteTime" : 1571438272,
+    "last_content_update" : 1571438272,
     "path" : "D:/Documentos/WebsiteDataScience/config.toml",
     "project_path" : "config.toml",
     "properties" : {
+        "cursorPosition" : "0,0",
+        "scrollLine" : "0"
     },
     "relative_order" : 4,
     "source_on_save" : false,
