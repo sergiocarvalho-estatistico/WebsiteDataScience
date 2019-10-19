@@ -2,7 +2,6 @@
 site: blogdown::serve_site()
 editor_options: 
   chunk_output_type: inline
-#teste
 ---
 
  

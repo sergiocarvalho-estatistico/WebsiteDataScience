@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.1.1">
+  <meta name="generator" content="Hugo 0.51" />
+  <meta name="author" content="Sérgio Carvalho">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="RESUMO
+Redes Bayesianas é um método de modelagem e de decisão baseado em incerteza conhecida como redes de opinião, redes causais e gráficos de dependência probabilística, que combina probabilidade e conhecimento prévio do problema afim de determinar a probabilidade final de uma hipótese. Seus nós representam as variáveis (discretas ou contínuas), e os arcos representam conexões diretas entre eles.
+Por pemitir uma abordagem interpretativa e analítica tem as Redes Bayesianas tem sido utilizada para:">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2018-11-25-redesbayesianas/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/R.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Para decisões sob incerteza, ciência de dados.">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Para decisões sob incerteza, ciência de dados.">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2018-11-25-redesbayesianas/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Para decisões sob incerteza, ciência de dados.">
+  <meta property="og:url" content="/post/2018-11-25-redesbayesianas/">
+  <meta property="og:title" content="Redes Bayesianas | Para decisões sob incerteza, ciência de dados.">
+  <meta property="og:description" content="RESUMO
+Redes Bayesianas é um método de modelagem e de decisão baseado em incerteza conhecida como redes de opinião, redes causais e gráficos de dependência probabilística, que combina probabilidade e conhecimento prévio do problema afim de determinar a probabilidade final de uma hipótese. Seus nós representam as variáveis (discretas ou contínuas), e os arcos representam conexões diretas entre eles.
+Por pemitir uma abordagem interpretativa e analítica tem as Redes Bayesianas tem sido utilizada para:">
+  
+  
+    
+  <meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-11-25T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-11-25T00:00:00&#43;00:00">
+  
+
+  
+
+  
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+  
+  <title>Redes Bayesianas | Para decisões sob incerteza, ciência de dados.</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header fixed-top">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Para decisões sob incerteza, ciência de dados.</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorial/">
+            
+            <span>Tutoriais</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contato</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Redes Bayesianas</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Sérgio Carvalho">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-11-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-11-25 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Nov 25, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Sérgio Carvalho">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    19 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/intelig%C3%AAncia-artificial/">Inteligência Artificial</a>, 
+    
+    <a href="/categories/infer%C3%AAncia-bayesiana/">Inferência Bayesiana</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Redes%20Bayesianas&amp;url=%2fpost%2f2018-11-25-redesbayesianas%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2f2018-11-25-redesbayesianas%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2018-11-25-redesbayesianas%2f&amp;title=Redes%20Bayesianas"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2018-11-25-redesbayesianas%2f&amp;title=Redes%20Bayesianas"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Redes%20Bayesianas&amp;body=%2fpost%2f2018-11-25-redesbayesianas%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<div id="resumo" class="section level1">
+<h1>RESUMO</h1>
+<p>Redes Bayesianas é um método de modelagem e de decisão baseado em incerteza conhecida como redes de opinião, redes causais e gráficos de dependência probabilística, que combina probabilidade e conhecimento prévio do problema afim de determinar a probabilidade final de uma hipótese. Seus nós representam as variáveis (discretas ou contínuas), e os arcos representam conexões diretas entre eles.</p>
+<p>Por pemitir uma abordagem interpretativa e analítica tem as Redes Bayesianas tem sido utilizada para:</p>
+<ul>
+<li>Estimação de risco operacional</li>
+<li>Diagnóstico médico,</li>
+<li>Credit scoring,</li>
+<li>Projeto de jogos computacionais,</li>
+<li>Imputação de dados, entre outras.</li>
+</ul>
+<p>Desta forma, as Redes Bayesianas pode ser utilizada para fins de:</p>
+<ul>
+<li>Decisão</li>
+<li>Classificação</li>
+<li>Análise de dependência entre variáveis,</li>
+</ul>
+<p>sendo uma alternativa às técnicas comumente utilizadas como, por exemplo, Regressão Logística e Análise Discriminante.</p>
+</div>
+<div id="uma-breve-revisao-da-teoria-de-probabilidades" class="section level1">
+<h1>Uma Breve Revisão da Teoria de Probabilidades</h1>
+<div id="definicao" class="section level2">
+<h2>Definição</h2>
+<p>A definição axiomática de probabilidade, dada por Komolgorov em 1933, é comumente adotada e considera que a probabilidade é uma função definida numa classe <span class="math inline">\(\tau\)</span> de eventos de <span class="math inline">\(\Omega\)</span> que satisfaz as seguintes condições:</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(P(A) \geq 0\)</span></p></li>
+<li><p>Se <span class="math inline">\(\cap_{i=1}^{\infty} A\_i = \varnothing \Longrightarrow P( \cup_{i=1}^{\infty} A\_i) = \displaystyle \sum_{i=1}^{\infty} P(A\_i)\)</span></p></li>
+<li><p><span class="math inline">\(P(\Omega) = 1\)</span>.</p></li>
+</ol>
+</div>
+<div id="probabilidade-condicional" class="section level2">
+<h2>Probabilidade condicional</h2>
+<p>A probabilidade condicional trata do fato de que muitas vezes temos conhecimento que um determinado evento já ocorreu, desta forma surge o interesse de calcular a probabilidade de outro evento de interesse e possivelmente relacionado ao evento anterior. Denotamos como P( E | F ) à probabilidade de ocorrência do evento E, sabendo que o evento F ocorreu, ou simplesmente, a probabilidade de E dado F. Desta forma, temos:</p>
+<center>
+<p><span class="math inline">\(P(E|F) = \dfrac{P(E\cap F)}{P(F)}\)</span></p>
+</center>
+<p>Analogamente,</p>
+<center>
+<p><span class="math inline">\(P(E\cap F) = P(E|F)P(F) ~~ \text{ou} ~~ P(E\cap F) = P(F|E)P(E)\)</span></p>
+</center>
+<p>generalizando, temos que:</p>
+<center>
+<p><span class="math inline">\(\small P(E_1,E_2,\cdots,E_n) = P(E_1)P(E_2|E1)P(E_3|E_1,E_2) \cdots P(E_n|E_1, E_2, \cdots, E_{n-1})\)</span></p>
+</center>
+<p>então, podemos escrever que:</p>
+<center>
+<p><span class="math inline">\(P(F) = \displaystyle \sum_{i=1}^{n} P(F|E_i)P(E_i)\)</span></p>
+</center>
+</div>
+<div id="independencia-probabilistica" class="section level2">
+<h2>Independência probabilística</h2>
+<p>Podemos considerar que os eventos E e F são independentes quando existe a relação.</p>
+<center>
+<p><span class="math inline">\(P(E|F) = P(E) ~~ \text{ou} ~~ P(F|E) = P(F)\)</span></p>
+</center>
+</div>
+<div id="teorema-de-bayes" class="section level2">
+<h2>Teorema de Bayes</h2>
+<p>Como anteriormente, considere o evento <span class="math inline">\(F\)</span> e <span class="math inline">\(E_i, \cdots , E_n\)</span> eventos exclusivos e exaustivos, ou seja, que não possuem intersecção e que a união deles forma o espaço amostral. Assim, o Teorema de Bayes é definido por.</p>
+<center>
+<p><span class="math inline">\(P(E_j | F) = \dfrac{P(E_j)P(F|E_j)}{\displaystyle \sum_{j = 1}^{n} P(E_j)P(F|E_j)}\)</span></p>
+</center>
+<p>O teorema de Bayes é uma junção do teorema de probabilidade condicional e da fórmula de probabilidades totais. Assim, <span class="math inline">\(P(E_j)\)</span> pode ser denominada como probabilidade a priori, <span class="math inline">\(P( F ~ | ~ E_j )\)</span> como verossimilhança e <span class="math inline">\(P(E_j ~|~ F)\)</span> como probabilidade a posteriori, ou seja, a probabilidade posterior à observação do evento F. Além disso, o denominador é a decomposição de <span class="math inline">\(P(E)\)</span> , ou seja, pode se considerado como constante normalizadora; desta forma, pode ser reescrito na forma.</p>
+<center>
+<p><span class="math inline">\(P(E_j ~|~ F) ~ ~ \propto ~ ~ P (E_j) ~ P(F ~|~ E_j)\)</span></p>
+</center>
+<p>sendo <span class="math inline">\(~ \propto ~\)</span> indicador de proporcionalidade. Em outros termos, podemos dizer que a probabilidade a posteriori é proporcional à probabilidade a priori multiplicada pela
+verossimilhança.</p>
+</div>
+<div id="as-distribuicoes-multinomial-e-dirichlet" class="section level2">
+<h2>As distribuições Multinomial e Dirichlet</h2>
+<p>Estas duas distribuições, aqui introduzidas, são amplamente utilizadas no contexto de Redes Bayesianas quando métodos de estimação bayesiana são requeridos. Considere uma variável aleatória X discreta que represente um experimento com r possíveis resultados, sendo que cada tipo de resultado possui uma probabilidade específica <span class="math inline">\(P(X = x_i) = p_i ~ ~ \text{e} ~ ~ \displaystyle \sum_{i = 1}^{r} p_i = 1\)</span>. Além disso, o experimento é repetido de forma independente N vezes, de forma que a variável <span class="math inline">\(X_i\)</span> seja o número de vezes que o resultado <span class="math inline">\(x_i\)</span> está presente na amostra com <span class="math inline">\(i=1, \cdots,r\)</span>. Temos que a variável <span class="math inline">\(X\)</span> segue distribuição Multinomial, sendo sua função densidade de probabilidade expressa pela fórmula.</p>
+<center>
+<p><span class="math inline">\(P(X ~|~ N,~ p) ~ = ~ \dfrac{N!}{\displaystyle \prod_{i=1}^{r} x_i!} \displaystyle \prod_{i=1}^{r} p_i^{xi} ~ ~ ~ , ~ ~ ~ \text{em que} ~ ~ ~ \sum_{i=1}^{r} x_i = N\)</span></p>
+</center>
+<p>Considerando o termo <span class="math inline">\(\dfrac{N!}{\displaystyle \prod_{i=1}^{r} x_i!}\)</span> como normalizador, temos</p>
+<center>
+<p><span class="math inline">\(P(X ~|~ N,~ p) ~ \propto ~ \displaystyle \prod_{i=1}^{r} p_i^{xi}\)</span></p>
+</center>
+<p>Além disso, temos que para um vetor <span class="math inline">\(p=(p_1, p_2, ~\cdots ~,p_r)\)</span> de valores desconhecidos
+com<span class="math inline">\(\displaystyle \sum_{i=1}^{r} p_i = 1\)</span>, podemos assumir que <span class="math inline">\(p\)</span> segue distribuição Dirichlet com parâmetros <span class="math inline">\(\alpha = (\alpha_1, ~\cdots ~, \alpha_r)\)</span> com <span class="math inline">\(\alpha_i &gt; 1\)</span>, <span class="math inline">\(E(p_i) = \dfrac{\alpha_i}{\alpha_0}\)</span> e função densidade de probabilidade expressa pela fórmula.</p>
+<center>
+<p><span class="math inline">\(P(~ p ~|~ \alpha) = \dfrac{\Gamma(\alpha_0) }{\displaystyle \prod_{i=1}^{r} \Gamma(\alpha_i) } \displaystyle \prod_{i=1}^{r} p_i^{\alpha_i - 1}\)</span></p>
+</center>
+<p>em que podemos considerar o termo <span class="math inline">\(\dfrac{\Gamma(\alpha_0) }{\displaystyle \prod_{i=1}^{r} \Gamma(\alpha_i) }\)</span> como normalizadorc, temos que:</p>
+<center>
+<p><span class="math inline">\(P(~ p ~|~ \alpha) = \displaystyle \prod_{i=1}^{r} p_i^{\alpha_i - 1}\)</span></p>
+</center>
+assumindo como priori <span class="math inline">\(P( p ~|~ \alpha)\)</span> e como verossimilhança <span class="math inline">\(P(X ~|~ N,~ p)\)</span>, temos que a posteriori <span class="math inline">\(P( p ~|~ X )\)</span> é dada pela expressão abixo a qual tem distribuição Dirichlet com parâmetros <span class="math inline">\(α = (α_1+x_1, . . . , α_r+x_r)\)</span>, ou seja <span class="math inline">\(E(p_i) = \dfrac{\alpha_i+x_i}{\alpha_0 + N}\)</span> , sendo <span class="math inline">\(\displaystyle \alpha = \sum_{i = 1}^{r} \alpha_i.\)</span>
+
+<center>
+<p><span class="math inline">\(P(p ~|~ X) \propto \displaystyle \prod_{i}^{r} p_{i}^{\alpha_i + x_i - 1}\)</span></p>
+</center>
+<p>Notamos que neste caso a posteriori possui o mesmo tipo de distribuição que a priori, assim dizemos que a família Dirichlet é conjugada para amostras com distribuição Multinomial.</p>
+</div>
+</div>
+<div id="redes-bayesianas" class="section level1">
+<h1>Redes Bayesianas</h1>
+<p>As Redes Bayesianas permite medir qual a influência probabilística não direta de uma variável para as demais, inclusive quando há um grande número de variáveis. Além disso, ela pode ser considerada como uma representação visual e informativa da tabela de probabilidade conjunta de todas as variáveis que envolvem o domínio do problema.</p>
+<div id="elementos-basicos-da-teoria-de-grafos" class="section level2">
+<h2>Elementos Básicos da Teoria de Grafos</h2>
+<p>A teoria de Redes Bayesianas é construída considerando grafos direcionados, conectados e acíclicos DAG (directed acyclic graph). O estudo dos grafos investiga as relações entre seus elementos, os nós e arcos. Os nós, círulos, representam as variáveis aleatórias do problema. Os arcos, setas, e representam a dependência probabilística direta entre duas variáveis.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-no-arco"></span>
+<img src="../../public/img/No_arco.jpg" alt="Exemplo de Nó e Arco" width="186" />
+<p class="caption">
+Figure 1: Exemplo de Nó e Arco
+</p>
+</div>
+</div>
+<div id="estruturas-basicas-existentes-dentro-da-teoria-de-grafos" class="section level2">
+<h2>Estruturas básicas existentes dentro da Teoria de grafos</h2>
+<p>O termo “direcionado” faz referência à presença de direção dos arcos, o termo “conectado” é utilizado para designar que todos os nós estão conectados na rede e, por fim, o termo “acíclico” se refere à propriedade de não retorno para um nó após seguida a direção dos arcos.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-estrutura-basica"></span>
+<img src="../../public/img/Estrutura_Basica.png" alt="Estrutura básica" width="100%" height="30%" />
+<p class="caption">
+Figure 2: Estrutura básica
+</p>
+</div>
+<p>Da da figura acima, notamos que as Redes Bayesianas envolvem apenas alguns tipos de estruturas básicas:</p>
+<ul>
+<li>Estrutura de conexões simples: Existe apenas um caminho que liga uma variável a outra independente da direção dos arcos</li>
+<li>Estrutura de múltiplas conexões: Há mais de um possível caminho que liga uma variável a outra, independente da direção dos arcos.</li>
+</ul>
+<p>A subdivisão das estruturas de conexão simples se dá pelo número de nós que
+originam a rede, ou seja, nós que não possuem nenhum arco chegando, apenas arcos partindo.</p>
+</div>
+<div id="hierarquia-entre-nos" class="section level2">
+<h2>Hierarquia Entre Nós</h2>
+<p>A relação de dependência direta entre dois nós por meio do arco que os conecta é denominada por pai e filho, o nó de onde o arco parte é designado nó pai, o nó de onde o arco chega com sua ponta é designado nó filho. Além disso, um nó que não possui filhos é chamado de folha e um nó que origina a rede, ou seja, que não possui pais, é chamado de raiz.</p>
+</div>
+<div id="formalizacao-estatistica-da-estrutura" class="section level2">
+<h2>Formalização Estatística da Estrutura</h2>
+<p>No contexto estatístico o termo nó A será substituído pelo termo variável A, a qual pode ser contínua ou discreta, apesar de alguns pesquisadores afirmarem que as Redes Bayesianas é primeiramente direcionada ao tratamento de variáveis discretas. Porém, as variáveis contínuas podem ser facilmente transformadas em variáveis discretas. Por exemplo, é condição básica a uma variável discreta não possuir variáveis pai contínuas. Neste contexto uma Rede Bayesiana é definida pelo trio <span class="math inline">\((\varepsilon, \theta, X )\)</span>, onde <span class="math inline">\(\varepsilon\)</span> é uma estrutura DAG e <span class="math inline">\(\theta\)</span> é um conjunto de parâmetros específicos de distribuições de probabilidades condicionais envolvendo um conjunto <span class="math inline">\(X\)</span> de variáveis aleatórias discretas.</p>
+</div>
+<div id="tabela-de-probabilidade-condicional" class="section level2">
+<h2>Tabela de probabilidade condicional</h2>
+<p>Outro elemento importante dentro da estrutura de Redes Bayesianas é a tabela de probabilidade condicional (CPT). Trata-se da exibição dos parâmetros de probabilidade condicional da variável sendo condicionada a seu(s) pai(s). Por exemplo, dado o conjunto de três variáveis A, B e C, todas dicotômicas assumindo valores binários, onde A e B são pais da variável C, temos a tabela abaixo.</p>
+<center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">C</th>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center"><span class="math inline">\(P(C \text{|} A,B)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\theta_1\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(\theta_2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\theta_3\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(\theta_4\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\theta_5\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(\theta_6\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\theta_7\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(\theta_8\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="exemplo-basico-de-uma-rede-bayesiana" class="section level2">
+<h2>Exemplo Básico de uma Rede Bayesiana</h2>
+<p>Considere uma Rede Bayesiana dada sua estrutura já conhecida e relacionando
+seguintes variáveis binárias:</p>
+<ul>
+<li>Sexo { M, F };</li>
+<li>Idade { &lt;20 anos, &gt;= 20 anos };</li>
+<li>Créditos Anteriores { 1, &gt;1 };</li>
+<li>Credit Rating { Bom , Ruim }</li>
+</ul>
+<p>Assim, a rede é representada pela Figura abaixo:</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-estrutura-modelagem"></span>
+<img src="../../public/img/exemplo1.png" alt="Exemplo da Estrutura de Modelagem das Redes Bayesianas" width="100%" height="30%" />
+<p class="caption">
+Figure 3: Exemplo da Estrutura de Modelagem das Redes Bayesianas
+</p>
+</div>
+<p>Observando a figura acima que as variáveis</p>
+<ul>
+<li>Sexo,</li>
+<li>Idade,</li>
+<li>Créditos Anteriores,</li>
+<li>Credit Rating,</li>
+</ul>
+<p>são representadas por seu respectivo nó na rede, sendo Sexo e Idade variáveis-pai da variável Crédtios Anteriores e Créditos Anteriores pai da variável Credit Rating. Ainda realizando uma análise hierárquica, as variáveis Sexo e Idade são classificadas na rede como variáveis-raiz e Credit Rating como folha.</p>
+<p>Além disso, notamos que Sexo e Idade influenciam diretamente a variável Créditos Anteriores, que por sua vez influencia probabilisticamente de uma forma direta a variável Credit Rating. Interpretando os relacionamentos, se o cliente é do sexo masculino, ou não, isso influencia na probabilidade do cliente ter um, ou mais, créditos anteriores realizados na instituição. Se o cliente é menor de 20 anos, ou não, também influencia a probabilidade do cliente ter um ou mais créditos anteriores realizados na instituição. Assim, a probabilidade do cliente ter, ou não, realizado requisição de créditos anteriormente na instituição financeira influencia a probabilidade dele ser classificado como um bom pagador ou mau pagador.
+Para cada uma das variáveis e seus cruzamentos condicionais, temos uma tabela de
+probabilidade condicional (CPT) explicando numericamente a chance da cada categoria – evento – ocorrer dado premissas anteriores.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-evidencia"></span>
+<img src="../../public/img/exemplo2.png" alt="Rede Bayesiana tendo como evidencia a variável Idade (Idade &lt;20)" width="218" height="50%" />
+<p class="caption">
+Figure 4: Rede Bayesiana tendo como evidencia a variável Idade (Idade &lt;20)
+</p>
+</div>
+</div>
+</div>
+<div id="conceitos-importantes" class="section level1">
+<h1>Conceitos Importantes</h1>
+<div id="evidencia" class="section level2">
+<h2>Evidência</h2>
+<p>Dada a estrutura gráfica DAG, outra definição é importante para a teoria de Redes Bayesianas. Esta é denominada como evidência e refere-se ao fato de uma variável ser indicada pelo usuário da rede, ou seja, uma variável aleatória com valor conhecido e acoplado à Rede Bayesiana com estrutura já conhecida. Basicamente, podemos definir uma evidência com uma observação.</p>
+<p>Considere o exemplo da Figura 2.3. Desta forma, observamos que um novo cliente possui a idade de 18 anos; assim, na rede, indicamos a variável Idade para a categoria respectiva, ou seja, definimos Idade &lt;20 anos. A variável idade é classificada como uma evidência para a rede. A Figura 2.4 exibe uma demonstração visual para Idade &lt;20 anos. As evidências são úteis quando existe o objetivo de realização de inferência probabilística para a rede em estudo. Este procedimento será visto com mais detalhes posteriormente.</p>
+</div>
+<div id="as-propriedades-markovianas" class="section level2">
+<h2>As propriedades Markovianas</h2>
+<p>Assim como em alguns tipos de processos estocásticos, a dinâmica de uma Rede Bayesiana é controlada pela propriedade de Markov, a qual rege que não existem dependências diretas entre as variáveis de uma Rede Bayesiana que não estão explícitas através da apresentação orientada dos arcos, ou seja, cada variável possui dependência direta apenas de sua (s) variável (eis) pai.</p>
+<p>A partir de todas as propriedades acima, temos que uma Rede Bayesiana é um par <span class="math inline">\((\varepsilon,\theta)\)</span> definido sobre um conjunto de variáveis aleatórias <span class="math inline">\(X = \{ X_1, X_2, \cdots , X_k \}\)</span>, onde cada <span class="math inline">\(X_i\)</span> corresponde a uma variável da rede, satisfazendo a propriedade de Markov:</p>
+<center>
+<p><span class="math inline">\(P[X_i ~|~ X_j,~ pais(X_i)] = P[X_i ~|~ pais(X_i)]\)</span></p>
+</center>
+<p>Além disso, consideremos a distribuição de probabilidade conjunta de uma Rede Bayesiana com k variáveis e a propriedade (2.1), temos que em uma Rede Bayesiana <span class="math inline">\((\varepsilon,\theta )\)</span> ,
+definida sobre um conjunto de variáveis aleatórias <span class="math inline">\(X = \{ X_1, X_2, \cdots , X_k \}\)</span>, a probabilidade conjunta de toda a rede é dada através da expressão.</p>
+<center>
+<p><span class="math inline">\(P(X_i = x_i, \cdots , X_k = x_k ) = \prod_{i = 1}^{k} P[X_i ~ | ~ pais(X_i) ]\)</span></p>
+</center>
+<p>Ou seja, as propriedades probabilísticas estão intimamente ligadas com o condicionamento da variável com seu (s) pai (s) respectivo (s). Note que (2.2) é resultado direto do desenvolvimento do Teorema de Bayes visto na seção 1.3.2.4., dada a propriedade (2.1).</p>
+<p>Para o exemplo da Figura 2.3, a variável Sexo e Idade são independentes, pois não existe nenhum arco relacionando-as. Além disso, Credit Rating é diretamente independente de Sexo e Idade, a variável Credit Rating depende apenas diretamente da variável Créditos Anteriores, a qual é sua variável-pai.</p>
+<p>Uma Rede Bayesiana na qual cada dependência probabilística entre as variáveis é dadapor um único arco é chamada de Rede perfeita (Korb e Nicholson, 2004).</p>
+<p>Outro conceito muito utilizado na teoria de Redes Bayesianas é a cobertura de Markov, que consiste no conjunto formado pelas variáveis-pai, variáveis-filhos e pais dos filhos de uma determinada variável. Como exemplo, temos que a cobertura de Markov para a variável Idade da Figura 2.4 envolve a variável Créditos Anteriores (variável-filho da variávelIdade) e a variável Sexo (variável-pai de uma variável-filho da variável Idade), note que a variável Idade não possui variáveis-pai, se estas existissem seriam consideradas na cobertura de Markov. Outro exemplo de cobertura de Markov pode ser visualizado na Figura 2.5 que exibe a cobertura de Markov para a variável A.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-cobertura-de-markov"></span>
+<img src="../../public/img/exemplo3.png" alt="Cobertura de Markov de A representada pelas variáveis-nó cinza" width="292" height="50%" />
+<p class="caption">
+Figure 5: Cobertura de Markov de A representada pelas variáveis-nó cinza
+</p>
+</div>
+</div>
+<div id="a-propriedade-de-d-separacao." class="section level2">
+<h2>A propriedade de d-separação.</h2>
+<p>Através das propriedades markovianas, notamos que uma variável é independente de outra se não existe nenhum arco conectando-as. Porém, é possível definir independência quando existe entre as variáveis analisadas um grupo específico de variáveis, podendo ser um grupo de evidências, por exemplo. Neste caso, surge a conceito de d-separação. Para defini-la consideremos alguns tipos de conexões dadas em Neopolitan (2004). Seja X, Z e Y variáveis de uma Rede Bayesiana <span class="math inline">\((\varepsilon,V)\)</span> , definimos alguns tipos de conexão:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Se <span class="math inline">\(X ~ \rightarrow ~ Z ~ \rightarrow ~ Y\)</span>, temos um relacionamento head-to-tail;</li>
+<li>Se <span class="math inline">\(X ~ \leftarrow ~ Z ~ \rightarrow ~ Y\)</span>, temos um relacionamento tail-to-tail;</li>
+<li>Se <span class="math inline">\(X ~ \rightarrow ~ Z ~ \leftarrow ~ Y\)</span>, temos um relacionamento head-to-head</li>
+</ol>
+</blockquote>
+<p>Além disso, podemos definir <span class="math inline">\(A \subset \vee\)</span>, sendo <span class="math inline">\(X e Y \in \vee - A\)</span>. Desta forma, para os casos 1 e 2, se consideramos que <span class="math inline">\(Z \in A\)</span> , a variável <span class="math inline">\(Z\)</span> bloqueará o caminho entre <span class="math inline">\(X ~\text{e}~ Y\)</span>. Para o caso 3, se consideramos que Z e seus descendentes  A, a variável Z bloqueará o caminh entre X e Y. Se o caminho entre duas variáveis, ou conjunto de variáveis, é bloqueado, dizemos que essas variáveis, ou conjuntos, são d-separados. A Figura 2.6, retirada de Marques e Dutra (1999), ilustra os três casos de d-separação, onde os conjuntos U e W são d-separados.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-tipos-d-separação"></span>
+<img src="../../public/img/exemplo4.png" alt=" Tipos de d-separação, U e W d-separados" width="275" height="50%" />
+<p class="caption">
+Figure 6:  Tipos de d-separação, U e W d-separados
+</p>
+</div>
+</div>
+<div id="equivalencia-de-markov" class="section level2">
+<h2>Equivalência de Markov</h2>
+<p>Existem inúmeras estruturas possíveis no enredo de Redes Bayesianas. Porém, podemos construir para cada conjunto de variáveis um grupo de estruturas extremamente semelhantes, chamadas de equivalentes de Markov.
+Segundo Neapolitan (2004), dois grafos são equivalentes quando mantêm as mesmas
+independências condicionais. Ou seja, dois grafos são considerados equivalentes quando conservam as mesmas ligações de arcos entre as variáveis independente da direção, com exceção às ligações head-to-head, ou seja, quando uma variável-filho possui mais que uma variável-pai. Assim, considere o exemplo da Figura 2.7.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-redes-equivalentes"></span>
+<img src="../../public/img/exemplo5.png" alt="Exemplo de identificação de redes Bayesianas Markov equivalentes" width="382" height="50%" />
+<p class="caption">
+Figure 7: Exemplo de identificação de redes Bayesianas Markov equivalentes
+</p>
+</div>
+<p>Analisando a Figura 2.7, notamos que a estrutura (a) não é equivalente a (b), pois além de não preservar a conexão head-to-head <span class="math inline">\(C ~ \rightarrow ~ E ~ \leftarrow ~ D\)</span> , a estrutura (b) não mantém a conexão entre as variáveis A e B. Esses mesmos motivos fazem (b) não equivalente à estrutura (c). Comparando a estrutura (a) com (c), notamos que existe apenas diferença entre a direção de ligação entre as variáveis A e B, ou seja, (a) e (c) são equivalentes. Dizemos que (a) e (c) pertencem à mesma classe de equivalência markoviana.</p>
+</div>
+</div>
+<div id="metodo-geral-para-a-construcao-de-uma-rede-bayesiana." class="section level1">
+<h1>Método Geral para a Construção de uma Rede Bayesiana.</h1>
+<p>A construção de uma Rede Bayesiana não é trivial, além de existir vários métodos para a estimação de estruturas de rede através do conjunto de dados, os métodos podem ser influenciados por fatores como a ordem e escolha das variáveis que compõem o problema. Esse problema proporciona atualmente intensas pesquisas buscando um método ótimo para estimação de estruturas DAG para domínios de problemas práticos.
+Porém, de uma forma geral, Pearl (1988) criou um algoritmo baseando-se nas
+propriedades 2.1 e 2.2, no qual, dado um conjunto de variáveis discretas ordenadas, constrói uma Rede Bayesiana única, adicionando às variáveis a rede em sua ordem e acrescentando arcos para a formação da estrutura. Assim, cada variável é conectada às variáveis antigas da rede, o que garante que a estrutura seja sempre acíclica.</p>
+<p>O algoritmo de Pearl é dado abaixo.</p>
+<ol style="list-style-type: decimal">
+<li>Escolha um conjunto de variáveis <span class="math inline">\(X_i\)</span> que em suposição descreva o problema;</li>
+<li>Escolha uma ordem para as variáveis;</li>
+<li>Para todas as variáveis em ordem, faça:
+<ol style="list-style-type: lower-alpha">
+<li>Escolha a variável <span class="math inline">\(X\)</span> e adicione-a na rede;</li>
+<li>Determine os pais da variável <span class="math inline">\(X\)</span> dentre os nós que já estão na rede, que satisfaça <span class="math inline">\(P[X_i~|~ X_j,~ pais(X_i)] = P[X_i| pais(X_i)]\)</span></li>
+<li>Construa a tabela de probabilidade condicional (CPT) para X.</li>
+</ol></li>
+</ol>
+<p>Para uma Rede Bayesiana ser adequada, ela deve ser perfeita, ou seja, todos arcos devem expressar corretamente as dependências entre as variáveis. Desta forma, é fácil notar que para a construção de uma Rede Bayesiana devemos escolher uma ordem correta para as variáveis, pois diferentes ordens podem gerar Redes Bayesianas diferentes. Desta forma, Korb e Nicholson (2004) sugerem que primeiramente consideremos as variáveis possíveis a serem raízes e suas variáveis independentes, a seguir as demais variáveis. Outros métodos de construção de Redes Bayesianas serão apresentados no decorrer do trabalho.</p>
+</div>
+<div id="resumo-1" class="section level1">
+<h1>Resumo</h1>
+<div id="inferencia-em-redes-bayesinas" class="section level2">
+<h2>Inferência em Redes Bayesinas</h2>
+<p>No contexto de Redes Bayesianas, o termo “inferência”, também conhecido como atualização de crença (belief updating), é comumente utilizado para referenciar a atualização de probabilidades por toda a estrutura da rede dada um conjunto de evidências. Ou seja, segundo Korb e Nicholson (2004), trata-se de um mecanismo para cálculo da distribuição posteriori de probabilidade para um conjunto de variáveis, dado um conjunto de evidências, ou seja, variáveis aleatórias com valores instanciados.</p>
+<p>Porém, como visto anteriormente, existem diversos tipos de estruturas de Redes
+Bayesianas, assim as inferências probabilistas podem ser realizadas de diferentes formas assumindo tipos de estruturas específicas e com diferentes quantidades de variáveis.</p>
+<p>Entretanto, existem fatores que dificultam o processo de inferência, como a complexidade da estrutura em análise e o número de variáveis. Ou seja, para poucas variáveis e uma estrutura gráfica dirigida acíclica (DAG) não complexa, a propagação das probabilidades pode ser facilmente calculada. À medida que existe um grande número de variáveis e estruturas mais complexas, existe grande dificuldade no cálculo das probabilidades da rede.</p>
+<p>Marques e Dutra (1999) consideram que existe maior dificuldade quando o problema é modelado de uma forma complexa, ou seja, quando a estrutura considerada para a inferência possui relações complexas entre as variáveis. Assim, em algumas situações, uma rede com apenas uma dezena de variáveis pode necessitar de um tempo computacional muito grande para término da inferência (às vezes inviável), enquanto uma rede contendo milhares de variáveis e uma estrutura simplista pode levar apenas alguns instantes de processamento.</p>
+<p>Buscando contornar tal problema, utilizamos algoritmos de inferência probabilística que facilitem os cálculos, sendo essa uma área de pesquisa em Redes Bayesianas.</p>
+<p>Deste modo, alguns algoritmos são utilizados de forma particular para tipos gerais de estruturas, basicamente as estruturas citadas na seção 2.1.2. Considerando as estruturas mais comuns, existem dois tipos de algoritmos para realizar inferência probabilista, estes são chamados de algoritmos exatos e algoritmos aproximados. Os algoritmos exatos produzem resultados mais satisfatórios, porém exigem um grande esforço computacional na presença de um alto número de variáveis na rede. Os algoritmos aproximados são construídos através de métodos de simulação, tendo uma precisão inferior, porém maior velocidade de processamento que os algoritmos exatos.</p>
+<p>Neste capítulo, serão expostos os mais comuns tipos de algoritmos exatos e aproximados, bem como suas utilizações em diferentes tipos de estruturas de Redes Bayesianas.</p>
+</div>
+</div>
+<div id="algoritmo-de-inferencia-exata" class="section level1">
+<h1>Algoritmo de Inferência Exata</h1>
+</div>
+<div id="aplicacao-fatores-de-risco-em-trombose-coronaria" class="section level1">
+<h1>Aplicação: Fatores de Risco em Trombose Coronária</h1>
+<div id="conjunto-de-dados" class="section level2">
+<h2>Conjunto de Dados</h2>
+<p>O conjunto de dados contém 6 variáveis com prováveis fatores de risco para trombose coronária, compreendendo dados de 1841 homens.</p>
+<pre class="r"><code>#Coleta da Base de Dados Coronary
+coronary &lt;- bnlearn::coronary %&gt;% data.frame()
+str(coronary)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    1841 obs. of  6 variables:
+##  $ Smoking : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ M..Work : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P..Work : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Pressure: Factor w/ 2 levels &quot;&lt;140&quot;,&quot;&gt;140&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Proteins: Factor w/ 2 levels &quot;&lt;3&quot;,&quot;&gt;3&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Family  : Factor w/ 2 levels &quot;neg&quot;,&quot;pos&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<blockquote>
+<ul>
+<li>Smoking ( Tabagismo ).</li>
+<li>M. Work ( Trabalho mental extenuante ).</li>
+<li>P. Work ( Trabalho físico extenuante ).</li>
+<li>Pressure ( Pressão arterial sistólica ).</li>
+<li>Proteins ( Proporção de beta e alfa lipoproteínas ).</li>
+<li>Family ( Anamnese familiar de doença coronária ).</li>
+</ul>
+</blockquote>
+</div>
+<div id="estrutura-de-aprendizagem" class="section level2">
+<h2>Estrutura de Aprendizagem</h2>
+<p>Existem vários algoritmos de aprendizagem de estruturas em Redes Bayesianas e alguns estão disponíveis no pacote bnlearn, vamos utilizar o algoritmo Hill Climbing.</p>
+<pre class="r"><code># Aprendizagem da rede bayesiana usando algoritmo Hill-Climbing (HC)
+res &lt;- hc(coronary)</code></pre>
+<p>A representação gráfica abaixo mostra a relação de dependência condicional entre as variáveis.</p>
+<pre class="r"><code>#Plot da Rede
+plot(res)</code></pre>
+<p><img src="/post/2018-11-25-redesbayesianas_files/figure-html/plot1-network-bayes-1.png" width="672" height="80%" style="display: block; margin: auto;" /></p>
+<p>Observe como o nó Pressure é influenciado pelo nó Smoking. No entanto, não faz muito sentido o nó Family, ser influenciado pelo nó M. Work, e neste caso, vamos modificar a estrutura gerada removendo o link entre os nós M. Work e Family.</p>
+<pre class="r"><code>#Remover o Link entre nós &quot;M..Work&quot;, &quot;Family&quot;
+res &lt;- drop.arc(res,&quot;M..Work&quot;,&quot;Family&quot;)
+#Plot da Rede
+plot(res)</code></pre>
+<p><img src="/post/2018-11-25-redesbayesianas_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tabelas-de-probabilidade-condicional." class="section level1">
+<h1>Tabelas de Probabilidade Condicional.</h1>
+<p>A função bn.fit nos retorna as tabelas de probabilidade condicional ( CPTs ) em cada nó, calculado pelo algoritmo EM (Expectation–Maximization).</p>
+<pre class="r"><code>#Rede Bayesiana Ajustada
+bnfit &lt;- bn.fit(res, data = coronary)</code></pre>
+<p>Analisando as probabilidades condicionais geradas para o nó Pressure (Pressão).</p>
+<pre class="r"><code>#Tabela de Probabilidade Condicional - Pressure
+bnfit$Pressure</code></pre>
+<pre><code>## 
+##   Parameters of node Pressure (multinomial distribution)
+## 
+## Conditional probability table:
+##  
+##         Smoking
+## Pressure        no       yes
+##     &lt;140 0.5359001 0.6125000
+##     &gt;140 0.4640999 0.3875000</code></pre>
+<p>Observe que o nó Pressure é condicionado a variável Smoking, conforme a representação gráfica da Rede Bayesiana.</p>
+</div>
+<div id="extraindo-valor-da-analise." class="section level1">
+<h1>Extraindo valor da Análise.</h1>
+<p>As Redes Bayesianas nos permite a atualização das probabilidades de toda a estrutura da rede dada um conjunto de evidências através da distribuição de probabilidade a posteriori dado um conjunto de variáveis.</p>
+<p>O processo de inferência podem ser realizado sobre as Redes Bayesianas, em quatro maneiras distintas:</p>
+<blockquote>
+<ul>
+<li>Diagnósticos: partindo dos efeitos para as causas;</li>
+<li>Causa: partindo das causas para os efeitos;</li>
+<li>Intercausal: entre causas de um efeito comum;</li>
+<li>Mistas: combinação de dois ou mais tipos descritos acima.</li>
+</ul>
+</blockquote>
+<div id="probabilidades-de-um-evento." class="section level2">
+<h2>Probabilidades de um evento.</h2>
+<p>Comparar as probabilidades de um indivíduo ter Pressure &gt; 140 para cada nível da variável Smoking dado que Proteins é ‘&gt;3’.</p>
+<pre class="r"><code>#Inferência em Redes Bayesianas
+100 *  cpquery(bnfit, 
+                     event = (Pressure==&quot;&gt;140&quot;), 
+                     evidence = (Smoking==&quot;yes&quot; &amp; Proteins==&#39;&gt;3&#39;)) %&gt;% round(2)</code></pre>
+<pre><code>## [1] 40</code></pre>
+<pre class="r"><code>100 *  cpquery(bnfit, 
+                     event = (Pressure==&quot;&gt;140&quot;), 
+                     evidence = (Smoking==&quot;no&quot; &amp; Proteins==&#39;&lt;3&#39;)) %&gt;% round(2)</code></pre>
+<pre><code>## [1] 48</code></pre>
+<center>
+<p>$ P(Pressure &gt; 140 ~ | ~ Smoking = yes, ~ Proteins &gt; 3) = 41 % $
+$ P(Pressure &gt; 140 ~ | ~ Smoking = no , ~ Proteins &gt; 3) = 47 % $</p>
+</center>
+<!-- Retras griegas y acentos matemáticos -->
+<!-- Código: $\mu, \beta, \lambda, \sigma, \Sigma$ -->
+<!-- Código: $\tilde{S}, \overline{x}, \overline{X}, \hat{p}$ -->
+<!-- Subíndices, superíndices, desigualdades: -->
+<!-- Código: $x_{i}$ -->
+<!-- Código: $x^{25}$ -->
+<!-- Código: $x_{i j}$ -->
+<!-- Código: $x^{2\cdot \alpha}, \tilde{S}^2,\sqrt{x}$ -->
+<!-- Código: $\mu=\mu_{0}$ -->
+<!-- Código: $3.141516\approx 3.14$ -->
+<!-- Código: $\mu\neq \mu_{0}$ -->
+<!-- Código: $\mu > \mu_{0}, \mu\geq \mu_{0}$ -->
+<!-- Código: $\mu < \mu_{0}, \mu\leq \mu_{0}$ -->
+<!-- Fracciones -->
+<!-- Código: $\frac{\alpha}{2}$ -->
+<!-- Código: $z_{1-\frac{\alpha}{2}}, 8^{\frac{1}{3}}$ -->
+<!-- Código: $\frac{\tilde{S}}{\sqrt{n}}$ -->
+<!-- Paréntesis, corchetes y llaves: -->
+<!-- Simples. Código: $(a,b); ]a,b[; \{a,b\}$ -->
+<!-- Que se adaptan al tamaño \left(\right),\left]\right] -->
+<!-- Código: -->
+<!-- $\left[\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} -->
+<!-- \right]$ -->
+<!-- Salida: -->
+<!-- \( \left[\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right] \) -->
+<!-- Matrices -->
+<!-- Las matrices se definen empezando con \[ \begin{array}{lcr} \] y acabando con \[ \end{array} \]. La letras lcr entre llaves indican tanto el número de columnas como si se alinean a izquierda (left), derecha (right) o quedan centradas (center). Entre el \[ \begin{array}{lcl} \] y el \[ \end{array} \] se introducen por filas los valores de la matriz separados por el símbolo & y el cambio de fila se indica con \\. En principio las matrices contienen fórmulas. Si queremos introducir texto en una fórmula tenemos que crear una caja de texto con la instrucción \[\mbox{ pon aquí tu texto} (mbox es el la abreviatura de make a box)\] -->
+<!-- $$ \left( -->
+<!-- \begin{array}{ll} -->
+<!-- 123 & 4 \\ -->
+<!-- 1   & 234 -->
+<!-- \end{array} -->
+<!-- \right) -->
+<!-- $$ -->
+<!-- $$ \left\{ -->
+<!-- \begin{array}{ll} -->
+<!-- 123 & 4 \\ -->
+<!-- 1   & 234\mbox{ dado atípico} -->
+<!-- \end{array} -->
+<!-- \right\} -->
+<!-- $$  -->
+<!-- Si queremos eliminar una llave del lado derecho hay que escribir $\left\{\right$. Por ejemplo -->
+<!-- $$ -->
+<!-- \left\{ -->
+<!-- \begin{array}{ll} -->
+<!-- 123 & 4  \\ -->
+<!-- 1   & 234 \mbox{ dato atípico} -->
+<!-- \end{array} -->
+<!-- \right. -->
+<!-- $$ -->
+<!-- Contrastes de hipótesis -->
+<!-- Ahora unas plantillas ejemplo para escribir los contrastes de hipótesis: -->
+<!-- En la misma linea que el texto. -->
+<!-- Código: Contrastaremos la hipótesis nula $H_{0}: \mu=\mu_0$ contra la alternativa bilateral $H_{1}: \mu\neq\mu_0$. -->
+<!-- $$ -->
+<!-- \left\{ -->
+<!-- \begin{array}{ll} -->
+<!-- H_{0}: &  \mu=\mu_0\\ -->
+<!-- H_{1}: & \mu\neq\mu_0 -->
+<!-- \end{array} -->
+<!-- \right. -->
+<!-- $$ -->
+</div>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/probabilidade/">Probabilidade</a>
+  
+  <a class="badge badge-light" href="/tags/redes-probabil%C3%ADsticas/">Redes Probabilísticas</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/Eu_Rayan.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Sérgio Carvalho</a></h5>
+    <h6 class="card-subtitle">Cientista de Dados</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.facebook.com/sergio.carvalho.108889?ref=bookmarks" target="_blank" rel="noopener">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.linkedin.com/in/s%C3%A9rgio-carvalho-8a10b027/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/sergiocarvalho-estatistico" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://drive.google.com/open?id=0B9TEez42MvatOUY1TV9QMzJsak5JQjNiX1IwQ3VZWm5aZlBV" target="_blank" rel="noopener">
+          <i class="ai ai-cv"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/Python.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/github.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/SQL.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.74b0d3361475b08c40cf31120e82937b.js"></script>
+
+    
+
+  </body>
+</html>
+
