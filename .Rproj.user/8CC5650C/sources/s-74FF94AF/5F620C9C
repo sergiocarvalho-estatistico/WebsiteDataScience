@@ -7,12 +7,14 @@
     "folds" : "",
     "hash" : "0",
     "id" : "5F620C9C",
-    "lastKnownWriteTime" : 1571440691,
-    "last_content_update" : 1571440691414,
+    "lastKnownWriteTime" : 1571449251,
+    "last_content_update" : 1571449251728,
     "path" : "D:/Documentos/WebsiteDataScience/index.Rmd",
     "project_path" : "index.Rmd",
     "properties" : {
         "chunk_output_type" : "inline",
+        "content_preview_enabled" : "true",
+        "content_preview_inline" : "true",
         "cursorPosition" : "5,0",
         "scrollLine" : "0"
     },
