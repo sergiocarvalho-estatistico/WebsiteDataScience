@@ -196,18 +196,12 @@ git status
 Se não existir nada ainda em seu repositório irá aparecer a seguinte mensagem:
 
 
-<center>
 
-<<<<<<< HEAD
+
+
 ![git stauts](../../public/img/git_status1.jpg)
-=======
-```{r git-status, fig.align='center', fig.cap='git stauts', echo=FALSE}
-# knitr::include_graphics('../../public/img/git_status1.jpg')
-knitr::include_graphics(https://github.com/sergiocarvalho-estatistico/sergiocarvalho-estatistico.github.io/blob/75a9c24c5823069f07a58d8bc563e82c3d915bef/img/git_status1.jpg)
-```
->>>>>>> ee3a436373cd0f8d1045d9a4e8d3386c91943ac7
 
-</center>
+
 
   * __On branch master__: significar que você está na branch master
   
