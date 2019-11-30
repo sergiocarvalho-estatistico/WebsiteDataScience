@@ -195,14 +195,12 @@ git status
 ```
 Se não existir nada ainda em seu repositório irá aparecer a seguinte mensagem:
 
+
 <center>
 
-```{r git-status, echo=FALSE, fig.align='center', fig.cap='git stauts'}
-knitr::include_graphics('../../public/img/git_status1.jpg')
-```
+![git stauts](../../public/img/git_status1.jpg)
 
 </center>
-
 
   * __On branch master__: significar que você está na branch master
   

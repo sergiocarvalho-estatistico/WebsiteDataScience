@@ -1,13 +1,13 @@
 {
-    "path" : "D:/Documentos/WebsiteDataScience",
+    "path" : "D:/Documentos/WebsiteDataScience/public",
     "sortOrder" : [
         {
             "ascending" : true,
-            "columnIndex" : 2
+            "columnIndex" : 4
         },
         {
-            "ascending" : false,
-            "columnIndex" : 4
+            "ascending" : true,
+            "columnIndex" : 2
         }
     ]
 }
