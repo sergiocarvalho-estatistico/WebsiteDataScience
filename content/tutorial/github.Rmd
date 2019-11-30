@@ -197,8 +197,9 @@ Se não existir nada ainda em seu repositório irá aparecer a seguinte mensagem
 
 <center>
 
-```{r git-status, echo=FALSE, fig.align='center', fig.cap='git stauts'}
-knitr::include_graphics('../../public/img/git_status1.jpg')
+```{r git-status, fig.align='center', fig.cap='git stauts', echo=FALSE}
+# knitr::include_graphics('../../public/img/git_status1.jpg')
+knitr::include_graphics(https://github.com/sergiocarvalho-estatistico/sergiocarvalho-estatistico.github.io/blob/75a9c24c5823069f07a58d8bc563e82c3d915bef/img/git_status1.jpg?raw=true)
 ```
 
 </center>
